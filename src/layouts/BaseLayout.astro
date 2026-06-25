@@ -1,0 +1,166 @@
+---
+import '@/styles/global.css';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { SITE } from '@/consts';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  noindex?: boolean;
+  schema?: string | string[];
+  /** ISO date string — adds Article published_time OG tag */
+  datePublished?: string;
+  /** ISO date string — adds Article modified_time OG tag */
+  dateModified?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = SITE.ogImage,
+  ogImageAlt,
+  noindex = false,
+  schema,
+  datePublished,
+  dateModified,
+} = Astro.props;
+
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, SITE.url).href;
+const ogImageUrl = new URL(ogImage, SITE.url).href;
+const fullTitle = title === SITE.title ? title : `${title} | ${SITE.title}`;
+const resolvedImageAlt = ogImageAlt ?? `${title} — Stickman Hook`;
+
+const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
+
+const orgSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE.url}/#org`,
+      "name": "Stickman Hook Fan Portal",
+      "url": SITE.url,
+      "logo": {
+        "@type": "ImageObject",
+        "@id": `${SITE.url}/#logo`,
+        "url": `${SITE.url}/favicon.svg`,
+        "caption": "Stickman Hook"
+      },
+      "description": "Unofficial fan portal for Stickman Hook — the physics-based swinging game by Madbox."
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE.url}/#website`,
+      "url": SITE.url,
+      "name": "Stickman Hook",
+      "description": SITE.description,
+      "publisher": { "@id": `${SITE.url}/#org` },
+      "inLanguage": "en-GB"
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
+      "name": fullTitle,
+      "description": description,
+      "isPartOf": { "@id": `${SITE.url}/#website` },
+      "inLanguage": "en-GB",
+      ...(datePublished ? { "datePublished": datePublished } : {}),
+      ...(dateModified ? { "dateModified": dateModified } : { "dateModified": new Date().toISOString().split('T')[0] }),
+    }
+  ]
+});
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Robots -->
+    {noindex
+      ? <meta name="robots" content="noindex, nofollow" />
+      : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    }
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={datePublished ? 'article' : 'website'} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={resolvedImageAlt} />
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:site_name" content={SITE.title} />
+    {datePublished && <meta property="article:published_time" content={datePublished} />}
+    {dateModified && <meta property="article:modified_time" content={dateModified} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={SITE.twitterHandle} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={resolvedImageAlt} />
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#7c3aed" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preconnect to game host -->
+    <link rel="preconnect" href={`https://${SITE.gameHost}`} />
+    <link rel="dns-prefetch" href={`https://${SITE.gameHost}`} />
+
+    <!-- Sitewide JSON-LD -->
+    <script type="application/ld+json" set:html={orgSchema}></script>
+
+    <!-- Page-specific JSON-LD -->
+    {schemas.map(s => (
+      <script type="application/ld+json" set:html={s}></script>
+    ))}
+
+    <!-- Page-specific head slot -->
+    <slot name="head" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.1s;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+</style>

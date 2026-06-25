@@ -1,0 +1,286 @@
+---
+import { SITE } from '@/consts';
+
+const thumbnail = '/images/banner.jpg';
+---
+
+<section class="game-section" id="play">
+  <div class="game-wrapper" id="game-wrapper">
+
+    <!-- ── POSTER (click to load) ── -->
+    <div
+      class="game-poster"
+      id="game-poster"
+      role="button"
+      tabindex="0"
+      aria-label="Play Stickman Hook free online"
+    >
+      <!-- LEFT: game art -->
+      <div class="poster-art">
+        <img
+          src={thumbnail}
+          alt="Stickman Hook gameplay screenshot"
+          class="poster-img"
+          width="800"
+          height="509"
+          loading="eager"
+        />
+      </div>
+
+      <!-- RIGHT: info + CTA -->
+      <div class="poster-info">
+        <p class="now-playing-tag">NOW PLAYING</p>
+
+        <div class="ready-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          READY TO PLAY
+        </div>
+
+        <h2 class="poster-title">
+          Stickman Hook<br/>— Play Online!
+        </h2>
+
+        <p class="poster-desc">
+          Swing through 100+ levels using a grappling hook. Free, unblocked,
+          no download — play instantly in your browser.
+        </p>
+
+        <div class="poster-cta">
+          <div class="btn-play-game">
+            <span class="play-icon-circle" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <polygon points="4,2 14,8 4,14" fill="white"/>
+              </svg>
+            </span>
+            Play game
+          </div>
+        </div>
+      </div>
+    </div><!-- /poster -->
+
+    <!-- IFRAME (injected on click) -->
+    <iframe
+      id="game-iframe"
+      class="game-iframe"
+      src=""
+      data-src={SITE.gameEmbedUrl}
+      title="Stickman Hook — play free online"
+      allow="fullscreen; autoplay"
+      loading="lazy"
+      sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+      aria-label="Stickman Hook game"
+    ></iframe>
+
+  </div><!-- /game-wrapper -->
+
+  <div class="fullscreen-bar">
+    <button class="btn-fullscreen" id="btn-fullscreen" aria-label="Open fullscreen">
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M1.5 1h4v1.5h-2.5v2.5h-1.5v-4zm9 0h4v4h-1.5v-2.5h-2.5v-1.5zm-9 9h1.5v2.5h2.5v1.5h-4v-4zm10.5 2.5v-2.5h1.5v4h-4v-1.5h2.5z"/>
+      </svg>
+      Fullscreen
+    </button>
+  </div>
+</section>
+
+<!-- ─────────────────────────── STYLES ─────────────────────────── -->
+<style>
+  /* ── Poster shell ── */
+  .game-poster {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    overflow: hidden;
+    background: #0c0b10;
+    border: none;
+  }
+
+  /* ── LEFT PANEL — art ── */
+  .poster-art {
+    flex: 0 0 40%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 1rem 1.25rem 1.25rem;
+    background: #0a090e;
+    overflow: hidden;
+  }
+  /* faint glow behind the thumbnail */
+  .poster-art::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 50%, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── RIGHT PANEL — info ── */
+  .poster-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.85rem;
+    padding: clamp(1rem, 4%, 2.5rem) clamp(1rem, 5%, 2.5rem);
+    background: linear-gradient(140deg, #14110d 0%, #0d0d1a 55%, #0b0b14 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  /* subtle diagonal lines decoration */
+  .poster-info::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ── "NOW PLAYING" ── */
+  .now-playing-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  /* ── "● READY TO PLAY" badge ── */
+  .ready-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.32);
+    color: #22c55e;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.8rem 0.28rem 0.55rem;
+    border-radius: 999px;
+  }
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+    animation: dot-pulse 2.2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 1;   transform: scale(1);    }
+    50%       { opacity: 0.45; transform: scale(0.8); }
+  }
+
+  /* ── Title ── */
+  .poster-title {
+    font-size: clamp(1.15rem, 2.8vw, 1.9rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Description ── */
+  .poster-desc {
+    font-size: clamp(0.75rem, 1.4vw, 0.9rem);
+    color: #94a3b8;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 340px;
+  }
+
+  /* ── CTA button ── */
+  .poster-cta { margin-top: 0.25rem; }
+
+  .btn-play-game {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+    color: #ffffff;
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+    font-weight: 700;
+    padding: clamp(0.55rem, 1.5vw, 0.8rem) clamp(1rem, 3vw, 1.75rem);
+    border-radius: 999px;
+    box-shadow:
+      0 4px 20px rgba(249, 115, 22, 0.38),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transition: transform 0.2s, box-shadow 0.2s;
+    user-select: none;
+    pointer-events: none; /* whole poster is the click target */
+    width: fit-content;
+  }
+  .game-poster:hover .btn-play-game {
+    transform: scale(1.05) translateY(-1px);
+    box-shadow:
+      0 8px 30px rgba(249, 115, 22, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+
+  .play-icon-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── Responsive: stack on very small screens ── */
+  @media (max-width: 500px) {
+    .game-poster { flex-direction: column; }
+    .poster-art  { flex: 0 0 45%; padding: 0.75rem; }
+    .poster-info { padding: 0.75rem 1rem; gap: 0.5rem; }
+    .poster-title { font-size: 1rem; }
+  }
+</style>
+
+<!-- ─────────────────────────── SCRIPT ─────────────────────────── -->
+<script>
+  const poster  = document.getElementById('game-poster');
+  const iframe  = document.getElementById('game-iframe') as HTMLIFrameElement;
+  const fsBtn   = document.getElementById('btn-fullscreen');
+  const wrapper = document.getElementById('game-wrapper');
+
+  function loadGame() {
+    if (!iframe || !poster) return;
+    iframe.src = iframe.dataset.src ?? '';
+    iframe.style.display = 'block';
+    poster.style.display = 'none';
+  }
+
+  poster?.addEventListener('click', loadGame);
+  poster?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') loadGame();
+  });
+
+  fsBtn?.addEventListener('click', () => {
+    if (!wrapper) return;
+    document.fullscreenElement
+      ? document.exitFullscreen()
+      : wrapper.requestFullscreen().catch(() => {});
+  });
+</script>

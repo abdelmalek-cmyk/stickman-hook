@@ -1,0 +1,46 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+---
+
+<BaseLayout
+  title="Terms of Use – Stickman Hook"
+  description="Terms of use for stickman-hook.co.uk — rules for using this fan portal."
+  ogImage="/og/home.png"
+>
+  <div class="hero" style="padding:1.5rem 0;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'Terms of Use' }]} />
+      <h1>Terms of Use</h1>
+      <p style="max-width:500px;margin:0 auto;color:var(--text-muted);font-size:0.9rem;">Last updated: June 2026</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:1.5rem;">
+    <div class="container" style="max-width:760px;">
+      <h2>1. Acceptance of terms</h2>
+      <p>By using stickman-hook.co.uk you agree to these terms. If you do not agree, please do not use the site.</p>
+
+      <h2>2. Fan portal disclaimer</h2>
+      <p>stickman-hook.co.uk is an unofficial fan portal. Stickman Hook is a game developed and published by <strong>Madbox</strong>. We are not affiliated with, endorsed by, or representing Madbox. All intellectual property rights relating to Stickman Hook belong to Madbox.</p>
+
+      <h2>3. Use of the site</h2>
+      <p>You may use this site for personal, non-commercial purposes only. You agree not to: attempt to scrape, reverse-engineer, or disrupt the site; use it for unlawful purposes; or reproduce the site's original content without permission.</p>
+
+      <h2>4. Embedded game</h2>
+      <p>The game embedded on this site is hosted by a third party and is subject to that provider's own terms and conditions. By clicking to load the game, you agree to connect to the third-party host.</p>
+
+      <h2>5. Limitation of liability</h2>
+      <p>This site is provided "as is" without warranty of any kind. We are not liable for any loss or damage arising from your use of the site or the embedded game.</p>
+
+      <h2>6. External links</h2>
+      <p>We link to official app store listings (App Store, Google Play). We are not responsible for the content or policies of those external sites.</p>
+
+      <h2>7. Changes</h2>
+      <p>We may modify these terms at any time. Continued use of the site constitutes acceptance of any changes.</p>
+
+      <h2>8. Contact</h2>
+      <p>Questions about these terms? Use the <a href="/contact/">Contact page</a>.</p>
+    </div>
+  </div>
+</BaseLayout>

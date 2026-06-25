@@ -1,0 +1,77 @@
+---
+import { SITE } from '@/consts';
+
+export interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+// Derive current page URL if last item has no href
+const currentPath = Astro.url.pathname;
+const all = [{ label: 'Home', href: '/' }, ...items];
+
+// Ensure last item always has a URL (required by Google's BreadcrumbList spec)
+const allWithUrls = all.map((item, i) => ({
+  ...item,
+  href: item.href ?? (i === all.length - 1 ? currentPath : undefined),
+}));
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": allWithUrls.map((item, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": item.label,
+    "item": new URL(item.href ?? '/', SITE.url).href,
+  })),
+});
+---
+
+<script type="application/ld+json" set:html={schema}></script>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    {allWithUrls.map((item, i) => (
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        {i > 0 && <span class="sep" aria-hidden="true">/</span>}
+        {item.href && i < allWithUrls.length - 1
+          ? <a href={item.href} itemprop="item"><span itemprop="name">{item.label}</span></a>
+          : <span class="current" aria-current="page" itemprop="name">{item.label}</span>
+        }
+        <meta itemprop="position" content={String(i + 1)} />
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: 0.75rem 0 0;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+  .breadcrumb-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+  }
+  .breadcrumb-list a { color: var(--text-muted); }
+  .breadcrumb-list a:hover { color: var(--accent-light); }
+  .current { color: var(--text); }
+  .sep { opacity: 0.5; }
+</style>

@@ -1,0 +1,44 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy – Stickman Hook"
+  description="Privacy policy for stickman-hook.co.uk — how we handle data, cookies, and embedded third-party content."
+  ogImage="/og/home.png"
+>
+  <div class="hero" style="padding:1.5rem 0;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'Privacy Policy' }]} />
+      <h1>Privacy Policy</h1>
+      <p style="max-width:500px;margin:0 auto;color:var(--text-muted);font-size:0.9rem;">Last updated: June 2026</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:1.5rem;">
+    <div class="container" style="max-width:760px;">
+      <h2>1. Who we are</h2>
+      <p>stickman-hook.co.uk is an unofficial fan portal for the browser game Stickman Hook. We are not affiliated with Madbox, the game's developer.</p>
+
+      <h2>2. What data we collect</h2>
+      <p>This site is a static website. We do not run a backend server, create user accounts, or store personal data ourselves. We do not use cookies from this site's own code.</p>
+      <p>However, the embedded game iframe and any analytics or advertising scripts may collect data as described below.</p>
+
+      <h2>3. Third-party content and embeds</h2>
+      <p>The game on this site is loaded via an embedded iframe from a third-party game host. When you click to load the game, your browser establishes a direct connection to that host. The third-party host's own privacy policy governs any data collected by the game itself.</p>
+
+      <h2>4. Analytics</h2>
+      <p>We may use a privacy-friendly analytics service to understand how many people visit the site. If used, this collects aggregated, anonymised data (page views, country of visit, device type) and does not track individuals or use cookies.</p>
+
+      <h2>5. Advertising</h2>
+      <p>This site may display advertisements via third-party ad networks. Those networks may use cookies and tracking technologies. You can opt out of personalised advertising via your browser settings or tools like the IAB opt-out.</p>
+
+      <h2>6. Your rights (UK GDPR)</h2>
+      <p>Under UK GDPR you have the right to access, correct, or delete personal data we hold about you. Since we don't collect personal data directly, the most relevant contact is the embedded game's host provider. For questions about this policy, use the <a href="/contact/">Contact page</a>.</p>
+
+      <h2>7. Changes to this policy</h2>
+      <p>We may update this policy from time to time. The "last updated" date at the top reflects the most recent change. Continued use of the site after changes constitutes acceptance of the updated policy.</p>
+    </div>
+  </div>
+</BaseLayout>

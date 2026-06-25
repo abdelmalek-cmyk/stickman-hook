@@ -1,0 +1,158 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import FAQBlock from '@/components/FAQBlock.astro';
+import { SITE } from '@/consts';
+
+const title = 'Download Stickman Hook – iOS, Android & Play on PC';
+const description = 'Download Stickman Hook free on iOS and Android, or play instantly on PC in your browser. Official App Store and Google Play links plus an install guide.';
+
+const softwareSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Stickman Hook",
+  "operatingSystem": ["Android", "iOS"],
+  "applicationCategory": "GameApplication",
+  "applicationSubCategory": "Arcade",
+  "description": "Physics-based swinging game where you control a stickman using a grappling hook. 1,000+ levels, free on iOS and Android.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.3",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "1000000"
+  },
+  "author": { "@type": "Organization", "name": "Madbox" },
+  "installUrl": SITE.googlePlayUrl,
+  "sameAs": [SITE.appStoreUrl, SITE.googlePlayUrl]
+});
+
+const faqItems = [
+  {
+    q: 'Can you download Stickman Hook?',
+    a: 'Yes — Stickman Hook is available as a free download on iOS (App Store) and Android (Google Play). For PC, the browser version at stickman-hook.co.uk is the easiest option — no installation needed, just open and play.',
+  },
+  {
+    q: 'Can you play Stickman Hook offline?',
+    a: 'The Stickman Hook mobile apps (iOS and Android) work offline once installed — handy for travel and for skipping between-level ads. The browser version needs an internet connection to load, but some browsers will cache it after the first load.',
+  },
+  {
+    q: 'Is Stickman Hook free to download?',
+    a: 'Yes, Stickman Hook is free on both iOS and Android. The app is ad-supported and includes optional in-app purchases such as a "No Ads" upgrade, but the download and all core gameplay is free.',
+  },
+  {
+    q: 'Can you play Stickman Hook on PC?',
+    a: 'Yes — the browser version of Stickman Hook works perfectly on PC in Chrome, Firefox, Edge, or any modern browser. There\'s no Windows download needed; just visit this site and click Play. For the mobile version on PC, you can use an Android emulator, though the browser version is the simpler option.',
+  },
+  {
+    q: 'Where can I find the official Stickman Hook APK?',
+    a: 'The official Stickman Hook APK is distributed through the Google Play Store. Never download APK files from unofficial sites — they may be modified, contain malware, or violate Madbox\'s terms. Stick to the official Google Play listing for a safe install.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage="/og/download.png" schema={softwareSchema}>
+  <div class="hero" style="padding:1.5rem 0;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'Download Stickman Hook' }]} />
+      <h1>Download Stickman Hook</h1>
+      <p style="max-width:620px;margin:0 auto;">Get the official Stickman Hook app free on iOS and Android — 1,000+ levels and offline play. Or play instantly in your browser with no download at all.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:1.5rem;">
+    <div class="container">
+
+      <!-- Download cards -->
+      <div class="grid-2" style="gap:1.25rem;margin-bottom:2.5rem;">
+        <a href={SITE.appStoreUrl} class="card" style="display:flex;flex-direction:column;gap:0.75rem;text-decoration:none;border-color:var(--border);transition:border-color 0.2s;" rel="noopener noreferrer" target="_blank">
+          <div style="font-size:2.5rem;line-height:1;">&#128253;</div>
+          <h2 style="margin:0;font-size:1.2rem;">Download on iOS</h2>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin:0;">Available free on the Apple App Store. Tap below to open the official listing. Requires iOS 12.0 or later.</p>
+          <span class="btn btn-primary" style="align-self:flex-start;">App Store &#8599;</span>
+        </a>
+
+        <a href={SITE.googlePlayUrl} class="card" style="display:flex;flex-direction:column;gap:0.75rem;text-decoration:none;border-color:var(--border);transition:border-color 0.2s;" rel="noopener noreferrer" target="_blank">
+          <div style="font-size:2.5rem;line-height:1;">&#9654;</div>
+          <h2 style="margin:0;font-size:1.2rem;">Download on Android</h2>
+          <p style="color:var(--text-muted);font-size:0.9rem;margin:0;">Available free on Google Play. Over 100 million downloads and 4.3 stars. Requires Android 5.0+.</p>
+          <span class="btn btn-primary" style="align-self:flex-start;">Google Play &#8599;</span>
+        </a>
+      </div>
+
+      <div class="card" style="margin-bottom:2.5rem;background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(168,85,247,0.05));border-color:rgba(124,58,237,0.3);">
+        <h2 style="margin-top:0;">Play on PC — no download needed</h2>
+        <p>The browser version of Stickman Hook runs in any modern browser — Chrome, Firefox, Edge, or Safari. No download, no account, no waiting. Click the button and start swinging in seconds.</p>
+        <a href="/" class="btn btn-primary">Play Now Free &#9654;</a>
+      </div>
+
+      <div class="facts-box" style="margin-bottom:2rem;">
+        <h3>App vs browser — comparison</h3>
+        <div style="overflow-x:auto;">
+          <table style="margin:0;">
+            <thead>
+              <tr><th>Feature</th><th>Mobile app (iOS/Android)</th><th>Browser (this site)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Price</td><td>Free</td><td>Free</td></tr>
+              <tr><td>Levels</td><td>1,000+</td><td>100+</td></tr>
+              <tr><td>Offline play</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Ads</td><td>Between levels (skippable)</td><td>Varies</td></tr>
+              <tr><td>Download needed</td><td>Yes</td><td>No</td></tr>
+              <tr><td>Device</td><td>Phone / tablet</td><td>PC, laptop, Chromebook</td></tr>
+              <tr><td>Skins system</td><td>Full</td><td>Full</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap:2rem;align-items:start;">
+        <div>
+          <h2>How to install Stickman Hook on Android</h2>
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><p>Open the <strong>Google Play Store</strong> on your Android device.</p></div>
+            <div class="step"><div class="step-num">2</div><p>Search for <strong>Stickman Hook</strong> (by Madbox).</p></div>
+            <div class="step"><div class="step-num">3</div><p>Tap <strong>Install</strong>. The app is free — no payment required.</p></div>
+            <div class="step"><div class="step-num">4</div><p>Open the app and start swinging. All 1,000+ levels are available immediately.</p></div>
+          </div>
+
+          <h2>How to install Stickman Hook on iPhone / iPad</h2>
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><p>Open the <strong>App Store</strong> on your iPhone or iPad.</p></div>
+            <div class="step"><div class="step-num">2</div><p>Search for <strong>Stickman Hook</strong>.</p></div>
+            <div class="step"><div class="step-num">3</div><p>Tap <strong>Get</strong> (or the cloud download icon if you've installed it before).</p></div>
+            <div class="step"><div class="step-num">4</div><p>Open the app — all your progress syncs if you use the same Apple ID.</p></div>
+          </div>
+        </div>
+
+        <div>
+          <h2>Can I play Stickman Hook on PC?</h2>
+          <p>Yes — the browser version of Stickman Hook works perfectly on PC in Chrome, Firefox, Edge, or any modern browser. There's no Windows download needed; just visit this site and click Play. For the mobile version on PC, you can use an Android emulator, though the browser version is the simpler option.</p>
+
+          <h2>Is there an official APK / Stickman Hook for PC download?</h2>
+          <p>Madbox doesn't publish a standalone PC app. The official distribution channels are the App Store (iOS), Google Play (Android), and browser via authorised game portals. If you find a "Stickman Hook PC download" or "APK" file on a third-party site, it's unofficial — we strongly recommend using only the official store links above to avoid malware or modified versions.</p>
+
+          <div class="tip-box">
+            <p><strong>Note:</strong> Never download APK files from unofficial sources. The Google Play Store listing is always the safest and most up-to-date version of Stickman Hook for Android.</p>
+          </div>
+
+          <h2>Does Stickman Hook work offline?</h2>
+          <p>The mobile apps (iOS and Android) work fully offline once installed — great for travel, commutes, and places without reliable Wi-Fi. The browser version needs an internet connection to load the game files initially, though modern browsers may cache it for short offline sessions.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <h2>More options</h2>
+        <div class="link-grid">
+          <a href="/" class="link-card"><strong>&#127918; Play in Browser</strong><span>No download — instant play</span></a>
+          <a href="/unblocked/" class="link-card"><strong>&#127891; Play Unblocked</strong><span>Works at school &amp; on Chromebooks</span></a>
+          <a href="/faq/" class="link-card"><strong>&#10067; FAQ</strong><span>More questions answered</span></a>
+          <a href="/games/" class="link-card"><strong>&#127918; More Games</strong><span>Similar games to try</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <FAQBlock items={faqItems} heading="Download — FAQ" />
+</BaseLayout>

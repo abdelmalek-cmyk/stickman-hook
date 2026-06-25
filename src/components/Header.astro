@@ -1,0 +1,35 @@
+---
+import { NAV_LINKS } from '@/consts';
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Stickman Hook — home">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <circle cx="11" cy="5" r="3" fill="#a855f7"/>
+          <line x1="11" y1="8" x2="11" y2="14" stroke="#a855f7" stroke-width="2"/>
+          <line x1="11" y1="14" x2="7" y2="20" stroke="#a855f7" stroke-width="2"/>
+          <line x1="11" y1="14" x2="15" y2="20" stroke="#a855f7" stroke-width="2"/>
+          <line x1="8" y1="11" x2="14" y2="11" stroke="#a855f7" stroke-width="2"/>
+          <path d="M11 4 Q16 0 20 4" stroke="#7c3aed" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span aria-hidden="true">Stickman <span>Hook</span></span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        {NAV_LINKS.map(link => (
+          <a
+            href={link.href}
+            class={currentPath === link.href ? 'active' : undefined}
+            aria-current={currentPath === link.href ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a href="/unblocked/" class="nav-cta" aria-label="Play Stickman Hook free online">Play Free</a>
+      </nav>
+    </div>
+  </div>
+</header>

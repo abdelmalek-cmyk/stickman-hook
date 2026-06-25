@@ -1,0 +1,188 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import FAQBlock from '@/components/FAQBlock.astro';
+import { SITE } from '@/consts';
+
+const title = 'How Many Levels in Stickman Hook? Full Level Guide';
+const description = 'How many levels are in Stickman Hook? Get the full count, the last level, world records, and tips for beating hard stages like level 25.';
+const datePublished = '2024-01-15';
+const dateModified = '2026-06-23';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": `${SITE.url}/og/levels.png`,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": { "@type": "Organization", "name": "Stickman Hook Fan Portal", "url": SITE.url },
+  "publisher": { "@type": "Organization", "name": "Stickman Hook Fan Portal", "url": SITE.url },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": `${SITE.url}/levels/` },
+  "about": { "@type": "VideoGame", "name": "Stickman Hook" }
+});
+
+const faqItems = [
+  {
+    q: 'How many levels are in Stickman Hook?',
+    a: 'Stickman Hook has over 100 levels in the browser version, with difficulty rising sharply after level 50. The mobile app includes 1,000+ levels and Madbox keeps adding more, so there\'s no fixed "last level" — after the core levels the game loops or continues endlessly.',
+  },
+  {
+    q: 'Does Stickman Hook ever end?',
+    a: 'The browser version has a finite set of 100+ levels with a clear finish. The mobile app effectively doesn\'t end — Madbox has added content past 1,000 levels and continues updating. After completing the core levels, the game loops or continues into extended content.',
+  },
+  {
+    q: 'What is the last level of Stickman Hook?',
+    a: 'In the browser version the final stage is around level 100–120, depending on the themed location group. The mobile app has no definitive last level — content extends past 1,000 and is regularly updated by Madbox.',
+  },
+  {
+    q: 'What is the world record in Stickman Hook?',
+    a: 'There\'s no single official world record in Stickman Hook, since scoring depends on speed and the level set. Speedrunners compete on completion times and distance; the practical goal is a clean, fast run with perfectly timed swings and no missed hooks.',
+  },
+  {
+    q: 'How do you beat level 25 in Stickman Hook?',
+    a: 'To beat level 25 in Stickman Hook, release each swing slightly later than feels natural to carry more momentum, and line up the next hook before you let go. Use bounce pads to recover height, and don\'t over-swing — short, controlled hooks keep you on line.',
+  },
+  {
+    q: 'How many themed locations are in Stickman Hook?',
+    a: 'The browser version of Stickman Hook groups its levels into around 10 themed location packs, each with a distinct visual style. The mobile app has more location packs as part of its expanded 1,000+ level roster.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage="/og/levels.png" datePublished={datePublished} dateModified={dateModified} schema={articleSchema}>
+  <div class="hero" style="padding:1.5rem 0;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'Stickman Hook Levels & Walkthrough' }]} />
+      <h1>Stickman Hook Levels &amp; Walkthrough</h1>
+      <p style="max-width:620px;margin:0 auto;">How many levels are there, where does the game end, and how do you beat the hard ones? Everything you need to know.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:1.5rem;">
+    <div class="container">
+
+      <div class="facts-box">
+        <h3>Level count — at a glance</h3>
+        <div class="facts-grid">
+          <div class="fact-item"><span class="fact-label">Browser version</span><span class="fact-value">100+ levels</span></div>
+          <div class="fact-item"><span class="fact-label">Mobile app</span><span class="fact-value">1,000+ levels</span></div>
+          <div class="fact-item"><span class="fact-label">Themed locations</span><span class="fact-value">~10 (browser)</span></div>
+          <div class="fact-item"><span class="fact-label">Game modes</span><span class="fact-value">Classic + Grapple Hook</span></div>
+          <div class="fact-item"><span class="fact-label">Last level</span><span class="fact-value">~100–120 (browser)</span></div>
+          <div class="fact-item"><span class="fact-label">Difficulty spike</span><span class="fact-value">After level 50</span></div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap:2rem;align-items:start;">
+        <div>
+          <h2>How many levels are in Stickman Hook?</h2>
+          <p>Stickman Hook has over 100 levels in the browser version, with difficulty rising sharply after level 50. The mobile app includes 1,000+ levels and Madbox keeps adding more, so there's no fixed "last level" — after the core levels the game loops or continues endlessly.</p>
+          <p>The level count varies by platform because Madbox actively updates the mobile app, while the browser version has a more stable, curated set. If you see different numbers reported online, they're usually accurate for a specific version at a specific time.</p>
+
+          <h2>Browser version vs mobile app — level comparison</h2>
+          <table>
+            <thead>
+              <tr><th>Feature</th><th>Browser</th><th>Mobile app</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Level count</td><td>100+</td><td>1,000+</td></tr>
+              <tr><td>Themed locations</td><td>~10</td><td>More (updated)</td></tr>
+              <tr><td>Offline play</td><td>No</td><td>Yes</td></tr>
+              <tr><td>Price</td><td>Free</td><td>Free</td></tr>
+              <tr><td>Ads</td><td>Varies</td><td>Between levels</td></tr>
+              <tr><td>Last level</td><td>~100–120</td><td>No fixed end</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Does Stickman Hook have an ending?</h2>
+          <p>The browser version has a clear finish — complete all the themed location packs and you've seen everything it has to offer. The mobile app effectively doesn't end; Madbox pushes new level packs regularly and content exists past level 1,000. After completing the core mobile levels the game loops into extended challenge content.</p>
+
+          <h2>What happens at level 1000 / 10000?</h2>
+          <p>In the mobile app, the game doesn't simply stop at any level number — it continues into new themed packs and challenge stages. There's no "level 10000" in a traditional sense; search interest in that term comes from players curious about whether there's truly an end (there isn't, practically speaking). Level 309 is often cited by players as a notoriously tough stage in earlier versions of the mobile app.</p>
+        </div>
+
+        <div>
+          <h2>Level difficulty curve</h2>
+          <p>Levels 1–20 teach the basics: straight swings, wide arcs, forgiving timing. Levels 21–50 add narrower gaps, faster pacing, and multi-jump sections. After level 50, difficulty spikes significantly — tighter corridors, moving platforms, and longer chains of consecutive hooks with no room for error.</p>
+
+          <h3>Early levels (1–20) — beginner tips</h3>
+          <p>Focus on getting the hold-and-release timing down. Don't rush — slow, deliberate swings are fine here. Use early levels to find your natural release point.</p>
+
+          <h3>Mid levels (21–50) — intermediate tips</h3>
+          <p>Start chaining hooks faster. The moment you're in range of the next anchor, hook it. Practice releasing past horizontal — just into the forward arc — for maximum carry. Bounce pads become important from level 25 onwards.</p>
+
+          <h3>Hard levels (50+) — advanced tips</h3>
+          <p>Precision matters above everything else. Learn each tricky transition section by section; don't try to brute-force it. Identify the two or three anchors per level where the timing is different from the norm and practice those specifically.</p>
+
+          <h2>How do you beat level 25?</h2>
+          <p>Release each swing slightly later than feels natural to carry more momentum, and line up the next hook before you let go. Use bounce pads to recover height, and don't over-swing — short, controlled hooks keep you on line. The gap near the end requires a clean mid-arc release; hold just past the lowest point of the swing before letting go.</p>
+
+          <h2>World records and speedruns</h2>
+          <p>There's no single official world record in Stickman Hook, since scoring depends on speed and the level set. Speedrunners on YouTube and TikTok compete on completion times and distance; the practical goal is a clean, fast run with perfectly timed swings and no missed hooks. The best speedruns involve zero hesitation between anchors and an instinctive feel for the release point — something that comes from repeating levels hundreds of times.</p>
+
+          <div class="tip-box">
+            <p><strong>Extended levels:</strong> Some versions of the game (including fan recreations on GitHub/Scratch) offer "extended levels" with 200+ or custom community stages. These aren't part of the official Madbox game but are widely played.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Extended content -->
+      <div class="grid-2" style="gap:2rem;align-items:start;margin-top:2.5rem;">
+        <div>
+          <h2>World-by-world level breakdown</h2>
+          <p>The browser version of Stickman Hook organises its levels into themed worlds, each sharing visual design elements and a distinct obstacle philosophy. While exact level numbers vary slightly between versions and updates, this is the typical progression:</p>
+          <p><strong>World 1 — City/Urban (Levels 1–10):</strong> Introduction to the core mechanic. Wide open gaps, obvious anchor placement, and forgiving timing windows. Every player can complete these in minutes. These levels exist to teach the fundamental hold-and-release without adding any other pressure.</p>
+          <p><strong>World 2 — Forest/Nature (Levels 11–20):</strong> Tighter spacing and diagonal swing paths appear. The first levels where players start missing swings consistently. Bounce pads are introduced to teach height recovery.</p>
+          <p><strong>World 3 — Winter/Snow (Levels 21–35):</strong> The difficulty spike begins. Narrow corridors, essential bounce pad use, and multi-anchor chain sequences. Levels 25–30 are frequently cited by players as the first serious wall that stops casual progress.</p>
+          <p><strong>World 4 — Construction/Industrial (Levels 36–50):</strong> Tighter gaps, more complex routing, and sections where choosing the wrong anchor creates an unrecoverable situation. Level 50 is often considered the mid-game boss — a comprehensive test of all techniques learned so far.</p>
+          <p><strong>World 5 — Sky/Clouds (Levels 51–65):</strong> High-altitude levels with large gaps and significant vertical variation. Momentum management becomes critical — losing height at altitude often leaves no way to recover, forcing a restart.</p>
+          <p><strong>Worlds 6–8 — Advanced (Levels 66–100+):</strong> These worlds introduce the most demanding mechanics: complex anchor timing, sections requiring multiple screen crossings, and configurations that require understanding the full arc geometry of each swing before attempting it.</p>
+          <p>The mobile app extends this progression with additional themed worlds including Desert, Underwater, Space, and seasonal themed packs — each maintaining the same core mechanic while introducing new visual elements and obstacle types.</p>
+
+          <h2>The hardest levels and how to beat them</h2>
+          <p>Based on community discussion and completion data, these are the levels most consistently identified as the toughest in the browser version:</p>
+          <p><strong>Level 25 — The first wall:</strong> A combination of a tight corridor, mandatory bounce pad use, and a long final gap. Solution: enter the corridor with short, controlled swings rather than maximum momentum. Hit the bounce pad near its centre. Release the final hook slightly past horizontal on the forward arc to clear the last gap cleanly.</p>
+          <p><strong>Level 50 — Mid-game boss:</strong> Multiple tight sections and a complex routing challenge. Players frequently find that the obvious anchor path is actually harder than an alternative route requiring hooks to further-away anchors that create a more useful arc shape.</p>
+          <p><strong>Level 76:</strong> A notoriously difficult level in many versions, featuring a gap that requires near-perfect momentum carried from three consecutive preceding swings. There is almost no room to recover speed once it's lost.</p>
+          <p><strong>Level 99:</strong> The penultimate level in the browser version. Combines multiple mechanics learned throughout the game and typically features at least one callback to an early-game concept in a more demanding configuration.</p>
+        </div>
+
+        <div>
+          <h2>How to beat hard levels: tier-specific strategies</h2>
+          <p><strong>Levels 1–20 (Beginner):</strong> Focus entirely on internalising the hold-and-release timing. Don't try to go fast — slow, deliberate swings are fine at this stage. The goal is to find your natural release point. If you consistently fall short on gaps, you're releasing too early; if you consistently crash into ceilings, you're releasing too late. Identify your personal error pattern and correct for it.</p>
+          <p><strong>Levels 21–50 (Intermediate):</strong> Start chaining hooks faster. The moment you're in range of the next anchor, hook it immediately — don't wait until you've lost speed. Practice releasing just past the apex of the upswing, on the downward forward arc. Bounce pads become essential from level 25 onwards; practise hitting them deliberately rather than treating them as accidents.</p>
+          <p><strong>Levels 51–100+ (Advanced):</strong> Precision matters above everything. Each level has a specific optimal routing that becomes clear once you've attempted it several times. Identify the two or three critical transitions per level and practise those sections specifically rather than running the full level from scratch every time. At this stage, the difference between completion and failure is often a single timing decision on one anchor.</p>
+
+          <h2>Mobile app levels vs browser version</h2>
+          <p>Players transitioning between the browser version and mobile app sometimes find the difficulty curve feels different, which can be confusing. The reason is twofold: mobile levels are specifically designed for touch input (which has different ergonomics from a mouse or keyboard), and the mobile app includes training and easier levels interspersed through its much larger catalogue that the browser version doesn't have.</p>
+          <p>The mobile app's 1,000+ levels include content for all skill levels — from absolute beginners to experienced players looking for extreme challenges. The browser version's 100+ levels represent a tighter, more curated difficulty progression. Neither is harder than the other in an absolute sense; they're designed for different contexts and play patterns.</p>
+          <p>One specific difference: some mobile levels are updated or adjusted by Madbox as part of regular app updates, which can change difficulty ratings that players found online. If a level guide you found seems wrong, it may reflect a version of the level that has since been modified.</p>
+
+          <h2>Extended levels, fan versions, and community content</h2>
+          <p>Beyond the official Madbox levels, a large community of Stickman Hook fans has created extended content on platforms like Scratch, itch.io, and GitHub Pages. These fan versions vary dramatically in quality — some are thoughtfully designed level packs that offer genuine challenge for players who have completed the official game, while others are simplistic recreations or clones with little design care.</p>
+          <p>The most popular fan extensions typically offer 200+ levels, often with custom obstacle types not present in the official game. Because they're created by community members rather than Madbox, they carry no age rating or quality guarantee. They're not accessible through this page, but can be found by searching for "Stickman Hook extended levels" or similar on Google.</p>
+          <p>Note that Madbox has not officially endorsed or partnered with any fan-made version. If a site claims to be an "official extended version" of Stickman Hook, that claim is inaccurate.</p>
+
+          <h2>World records and competitive play</h2>
+          <p>The Stickman Hook community on YouTube and TikTok hosts an active speedrunning scene. While there is no single official world record tracker (Madbox has not partnered with speedrun.com for Stickman Hook), players share completion runs for individual levels and any-percent full-game completions.</p>
+          <p>For players wanting to improve their completion times, the most impactful change is eliminating idle time between anchors. Watching back a recording of your own gameplay and identifying every moment where you coast without a hook will reveal exactly where time is lost. Top runs involve continuous chaining with zero pause between any two swings across the entire level set.</p>
+          <p>The practical benchmark for intermediate players is completing the browser version's core levels without more than 3 attempts on any single level. For advanced players, the goal becomes consistent first or second-attempt completion of all levels, and eventually single-attempt full-game runs.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <h2>Related guides</h2>
+        <div class="link-grid">
+          <a href="/how-to-play/" class="link-card"><strong>&#127919; How to Play</strong><span>Controls &amp; timing tips</span></a>
+          <a href="/" class="link-card"><strong>&#127918; Play Now</strong><span>Start swinging instantly</span></a>
+          <a href="/skins/" class="link-card"><strong>&#128084; Skins</strong><span>Unlock characters by level</span></a>
+          <a href="/faq/" class="link-card"><strong>&#10067; FAQ</strong><span>More common questions</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <FAQBlock items={faqItems} heading="Levels — FAQ" />
+</BaseLayout>

@@ -1,0 +1,189 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import FAQBlock from '@/components/FAQBlock.astro';
+import { SITE } from '@/consts';
+
+const title = 'Stickman Hook FAQ – Free, Offline, Levels & More';
+const description = 'Answers to common Stickman Hook questions: is it free, does it work offline, how many levels, who made it, age rating, and more.';
+const datePublished = '2024-01-15';
+const dateModified = '2026-06-23';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": title,
+  "description": description,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": { "@type": "Organization", "name": "Stickman Hook Fan Portal", "url": SITE.url },
+  "publisher": { "@type": "Organization", "name": "Stickman Hook Fan Portal", "url": SITE.url },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": `${SITE.url}/faq/` }
+});
+
+const faqItems = [
+  {
+    q: 'What is Stickman Hook?',
+    a: 'Stickman Hook is a free physics-based swinging game by Madbox. You control a stickman who uses a grappling hook to swing from anchor to anchor, building momentum to fly across each level and reach the finish line. It launched in October 2018 and plays in any browser or as a mobile app.',
+  },
+  {
+    q: 'Is Stickman Hook free to play?',
+    a: 'Yes, Stickman Hook is completely free to play in your browser and free to download on iOS and Android. It\'s ad-supported, with optional in-app purchases such as a "No Ads" upgrade (around £2.49 / $2.99) and cosmetic skins, but you can finish every level without spending anything.',
+  },
+  {
+    q: 'Can you play Stickman Hook offline?',
+    a: 'The Stickman Hook mobile apps (iOS and Android) work offline once installed — handy for travel and for skipping between-level ads. The browser version needs an internet connection to load the game files, but after the initial load some browsers will cache it for short offline sessions.',
+  },
+  {
+    q: 'Who made Stickman Hook?',
+    a: 'Stickman Hook was developed and published by Madbox, a France-based mobile game studio. It was first released on iOS on 3 October 2018, went worldwide on 29 October 2018, and has since passed 100 million downloads on Google Play, making it one of the most popular casual swinging games on web and mobile.',
+  },
+  {
+    q: 'When was Stickman Hook released?',
+    a: 'Stickman Hook launched on iOS on 3 October 2018 and worldwide on 29 October 2018. The browser (HTML5) version followed shortly after and quickly became one of the most-played games on portals like Poki and CoolMathGames.',
+  },
+  {
+    q: 'How many levels are in Stickman Hook?',
+    a: 'Stickman Hook has over 100 levels in the browser version, with difficulty rising sharply after level 50. The mobile app includes 1,000+ levels and Madbox keeps adding more, so there\'s no fixed "last level" — after the core levels the game loops or continues endlessly.',
+  },
+  {
+    q: 'Does Stickman Hook have ads?',
+    a: 'The mobile apps show ads between levels — short video ads that can be skipped after a few seconds. There\'s an optional "No Ads" in-app purchase to remove them permanently. The browser version on this site loads the game directly; ad experience varies depending on the version.',
+  },
+  {
+    q: 'Is Stickman Hook appropriate for kids?',
+    a: 'Stickman Hook carries a 4+ age rating and contains no violence or mature content — just cartoon stickman swinging. It does include ads and optional in-app purchases in the mobile version, so parents may prefer the ad-free upgrade or supervised play for younger children.',
+  },
+  {
+    q: 'Is Stickman Hook unblocked at school?',
+    a: 'Yes — visit our <a href="/unblocked/">Stickman Hook Unblocked page</a> to play full screen in your browser at school. The HTML5 game loads on most school networks, including Chromebooks, with no download or login required.',
+  },
+  {
+    q: 'Is Stickman Hook not working / crashing?',
+    a: 'If Stickman Hook isn\'t loading, try: (1) refreshing the page, (2) clearing browser cache (Ctrl+Shift+R), (3) switching to Chrome or Firefox, (4) disabling browser extensions like ad blockers that may interfere with the game iframe. The game requires JavaScript enabled.',
+  },
+  {
+    q: 'Is there a Stickman Hook 2?',
+    a: 'There\'s no official "Stickman Hook 2" from Madbox; instead, the original game keeps getting new levels and modes through updates. Many sites list "Stickman Hook 2" as fan or alternate versions with extra levels. See our <a href="/stickman-hook-2/">Stickman Hook 2 page</a> for more.',
+  },
+  {
+    q: 'How do I download Stickman Hook?',
+    a: 'Download the official Stickman Hook app on the <a href="/download/">Download page</a> — available free on iOS (App Store) and Android (Google Play). For PC, the browser version at stickman-hook.co.uk is the easiest option; no installation needed.',
+  },
+  {
+    q: 'Why is Stickman Hook not loading or not working?',
+    a: 'If Stickman Hook isn\'t loading: (1) refresh the page; (2) clear browser cache with Ctrl+Shift+R; (3) switch to Chrome or Firefox if using another browser; (4) disable ad-blocker or browser extensions that may block the game iframe; (5) ensure JavaScript is enabled. The game requires an active internet connection on the first load.',
+  },
+  {
+    q: 'Is there a Stickman Hook PC download?',
+    a: 'There is no official standalone PC download from Madbox. The browser version runs directly in Chrome, Firefox, or Edge — no installation needed. For an installed experience on PC, you can add the browser page as a Progressive Web App (PWA) via Chrome\'s install option in the address bar.',
+  },
+  {
+    q: 'How do you get the ninja skin in Stickman Hook?',
+    a: 'The ninja skin unlocks automatically after completing a set of early Classic mode levels — typically around levels 15–20 depending on the version. It may also require completing a specific challenge shown in the character select screen. Keep progressing through Classic mode and it will unlock without additional steps.',
+  },
+  {
+    q: 'What is the difference between Classic mode and Grapple Hook mode?',
+    a: 'Classic mode is the default where you swing using the standard grappling hook. Grapple Hook mode unlocks after completing 30 Classic levels and modifies the rope physics slightly, creating a different feel. Both modes use identical controls — hold to hook, release to launch.',
+  },
+  {
+    q: 'Can you play Stickman Hook with two players?',
+    a: 'The official game by Madbox is single-player only — there is no official 2-player or multiplayer mode. Some fan-made versions on Scratch and similar platforms include 2-player variants, but these are unofficial community creations not affiliated with Madbox.',
+  },
+  {
+    q: 'Does Stickman Hook have sound and how do I mute it?',
+    a: 'Yes, the game has background music and sound effects. To mute, click the gear (settings) icon within the game and toggle music/SFX. Alternatively, right-click the browser tab and select "Mute site". All gameplay information is communicated visually — the game is fully playable with sound off.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage="/og/faq.png" datePublished={datePublished} dateModified={dateModified} schema={articleSchema}>
+  <div class="hero" style="padding:1.5rem 0;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'FAQ' }]} />
+      <h1>Stickman Hook FAQ</h1>
+      <p style="max-width:600px;margin:0 auto;">Everything you want to know about Stickman Hook — from how to play and how many levels, to offline mode, age ratings, and more.</p>
+    </div>
+  </div>
+
+  <!-- Intro article -->
+  <div class="section" style="padding-top:1.5rem;padding-bottom:0;">
+    <div class="container">
+      <div class="grid-2" style="gap:2rem;align-items:start;">
+        <div>
+          <h2>Everything you need to know about Stickman Hook</h2>
+          <p>Stickman Hook is one of the most played free browser games of the past decade. With over 100 million downloads across mobile platforms and millions of monthly players on the web, it generates a wide variety of questions — from first-time players asking how the controls work, to experienced players chasing specific skin unlocks or wondering whether an official sequel exists.</p>
+          <p>This FAQ collects the most common questions about Stickman Hook, organised to answer the most frequently searched queries first. Topics covered include the basic gameplay mechanics, who made the game, how many levels exist, whether it works offline, how to unlock every skin, and what to do when the game isn't loading correctly.</p>
+          <p>The answers below apply primarily to the HTML5 browser version of Stickman Hook. Where the mobile app differs meaningfully, that's noted. For the most current information about the mobile app specifically, the App Store and Google Play pages maintained by Madbox are authoritative sources.</p>
+
+          <h2>About the developer: Madbox</h2>
+          <p>Stickman Hook was created by Madbox, a mobile game studio founded in Paris in 2016. The studio focuses on casual mobile games with one-tap controls, aiming to make games that are immediately understandable but take skill to master. Stickman Hook is their most successful title by a significant margin.</p>
+          <p>Madbox continues to actively update the mobile version of Stickman Hook with new levels, seasonal events, and occasional new mechanics. The browser version is updated less frequently but follows the same core game engine. As of 2024, Madbox has expanded to other titles but continues to support Stickman Hook as its flagship product.</p>
+          <p>Madbox does not publicly communicate a development roadmap for Stickman Hook, so questions about upcoming features or official sequels are difficult to answer definitively. The best source for news is Madbox's official social media accounts and the App Store / Google Play listings.</p>
+        </div>
+        <div>
+          <h2>Quick answers to common questions</h2>
+          <p><strong>Is Stickman Hook free?</strong> Yes, completely free. Browser version has no cost at all. Mobile app is free to download with optional ads removal and cosmetic purchases.</p>
+          <p><strong>How do you control Stickman Hook?</strong> One input only: hold the mouse button or spacebar (desktop) or tap and hold the screen (mobile) to hook the nearest anchor. Release to launch. There are no other controls.</p>
+          <p><strong>Does Stickman Hook work on Chromebook?</strong> Yes. The HTML5 game runs natively in Chrome on ChromeOS without any plugins or extensions. Open this page and click Play.</p>
+          <p><strong>How do you unlock the corgi/raincloud skin?</strong> Through accumulated distance milestones. Every metre your stickman swings counts toward the total — even on failed attempts. Keep playing and these unlock automatically when you hit the threshold.</p>
+          <p><strong>Is there a Stickman Hook 2?</strong> No official sequel from Madbox. The original game receives ongoing level and content updates instead. Some sites label fan versions as "Stickman Hook 2" but these are unofficial.</p>
+          <p><strong>Why isn't Stickman Hook loading?</strong> Try refreshing the page, clearing browser cache (Ctrl+Shift+R), switching to Chrome or Firefox, or disabling ad-blocker extensions. JavaScript must be enabled.</p>
+
+          <h2>Technical questions answered</h2>
+          <p><strong>What format does Stickman Hook use?</strong> HTML5 / JavaScript. It runs entirely in the browser using the Canvas API and does not require Flash, Java, Unity plugins, or any other software. This is why it works on Chromebooks and modern school networks.</p>
+          <p><strong>Does Stickman Hook save progress automatically?</strong> Yes. Browser progress saves in local storage — it persists as long as you don't clear your browser data. Mobile uses cloud saves via App Store / Google Play.</p>
+          <p><strong>Can you play with a gamepad?</strong> Not natively. If your OS maps a gamepad button to a mouse click or keyboard key, that mapping will work, since the game responds to a single hold/release input regardless of source.</p>
+          <p><strong>What is the file size of the browser version?</strong> The game is very lightweight — under 5MB of assets that are cached after the first load. Subsequent loads are near-instant on any connection speed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All FAQ items get their own schema via FAQBlock -->
+  <div class="section" style="padding-top:1.5rem;">
+    <div class="container">
+      <div class="faq-list" role="list">
+        {faqItems.map(item => (
+          <details class="faq-item" role="listitem">
+            <summary class="faq-question">
+              <span>{item.q}</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M8 10.94L1.53 4.47l1.06-1.06L8 8.82l5.41-5.41 1.06 1.06z"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p set:html={item.a}></p>
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <!-- FAQPage JSON-LD directly on this page -->
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map(item => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": { "@type": "Answer", "text": item.a.replace(/<[^>]+>/g, '') },
+        })),
+      })}></script>
+    </div>
+  </div>
+
+  <!-- Quick links -->
+  <div class="section-sm">
+    <div class="container">
+      <h2>More Stickman Hook</h2>
+      <div class="link-grid">
+        <a href="/" class="link-card"><strong>&#127918; Play Now</strong><span>Instant browser game</span></a>
+        <a href="/unblocked/" class="link-card"><strong>&#127891; Unblocked</strong><span>Play at school</span></a>
+        <a href="/how-to-play/" class="link-card"><strong>&#127919; How to Play</strong><span>Controls &amp; tips</span></a>
+        <a href="/levels/" class="link-card"><strong>&#127381; Levels</strong><span>Level count &amp; guides</span></a>
+        <a href="/skins/" class="link-card"><strong>&#128084; Skins</strong><span>Unlock characters</span></a>
+        <a href="/download/" class="link-card"><strong>&#128242; Download</strong><span>iOS &amp; Android app</span></a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

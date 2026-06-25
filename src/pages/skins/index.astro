@@ -1,0 +1,202 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import FAQBlock from '@/components/FAQBlock.astro';
+import { SITE } from '@/consts';
+
+const title = 'Stickman Hook Skins – All Characters & How to Unlock';
+const description = 'Every Stickman Hook skin and character, plus how to unlock them — including secret, challenge, and distance-milestone skins like the raincloud and corgi.';
+const datePublished = '2024-01-15';
+const dateModified = '2026-06-23';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": `${SITE.url}/og/skins.png`,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": { "@type": "Organization", "name": "Stickman Hook Fan Portal", "url": SITE.url },
+  "publisher": { "@type": "Organization", "name": "Stickman Hook Fan Portal", "url": SITE.url },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": `${SITE.url}/skins/` },
+  "about": { "@type": "VideoGame", "name": "Stickman Hook" }
+});
+
+const faqItems = [
+  {
+    q: 'How do you unlock skins in Stickman Hook?',
+    a: 'In Stickman Hook, skins unlock automatically as you complete levels and hit distance milestones — no purchase required for most. Keep clearing levels to earn new characters like ninjas, animals and food-themed stickmen; some special and challenge skins appear after specific stages.',
+  },
+  {
+    q: 'How do you get the raincloud skin in Stickman Hook?',
+    a: 'The raincloud skin in Stickman Hook is a distance-milestone reward. Keep playing and accumulating total swing distance across all your sessions — when you hit the required milestone the raincloud unlocks automatically. The exact distance threshold varies by version.',
+  },
+  {
+    q: 'How do you get the corgi skin in Stickman Hook?',
+    a: 'The corgi skin is unlocked by reaching a specific total distance milestone or completing a set number of levels. Like most skins in Stickman Hook it\'s awarded automatically once you hit the threshold — just keep playing and it will appear in your character select screen.',
+  },
+  {
+    q: 'Are there skins you have to pay for in Stickman Hook?',
+    a: 'Most skins in Stickman Hook are free and unlock through gameplay (levels completed, distance traveled). Some cosmetic packs or premium skins may be available as in-app purchases in the mobile version, but the majority of characters can be earned by playing.',
+  },
+  {
+    q: 'What are challenge skins in Stickman Hook?',
+    a: 'Challenge skins are special characters that unlock after completing specific in-game challenges or events. They differ from standard level-unlock skins — you may need to complete a particular achievement, reach a specific stage, or participate in a limited-time event to earn them.',
+  },
+  {
+    q: 'How many skins does Stickman Hook have?',
+    a: 'Stickman Hook has dozens of skins across several categories: ninja characters, animals (corgi, cat, etc.), food-themed stickmen (banana, burger), and special challenge skins. The exact count grows as Madbox adds new content in updates.',
+  },
+];
+
+const skinCategories = [
+  {
+    name: 'Standard / Level unlock',
+    description: 'Unlock by completing level milestones in Classic mode',
+    examples: 'Ninja, various stickman colour variants',
+    how: 'Clear levels — unlocks appear automatically',
+  },
+  {
+    name: 'Animal skins',
+    description: 'Animal-themed characters, fan favourites',
+    examples: 'Corgi, Cat, other animals',
+    how: 'Distance milestones or level completion',
+  },
+  {
+    name: 'Food skins',
+    description: 'Food-themed stickmen with unique look',
+    examples: 'Banana, Burger, other food items',
+    how: 'Level or distance milestones',
+  },
+  {
+    name: 'Weather / nature skins',
+    description: 'Nature-themed characters',
+    examples: 'Raincloud',
+    how: 'Accumulated swing distance milestone',
+  },
+  {
+    name: 'Challenge skins',
+    description: 'Unlocked via specific challenges or stages',
+    examples: 'Various challenge-specific characters',
+    how: 'Complete the associated challenge stage',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage="/og/skins.png" datePublished={datePublished} dateModified={dateModified} schema={articleSchema}>
+  <div class="hero" style="padding:1.5rem 0;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'Skins & Characters' }]} />
+      <h1>Stickman Hook Skins &amp; Characters</h1>
+      <p style="max-width:620px;margin:0 auto;">How to unlock every skin — from level rewards and distance milestones to challenge skins and the fan-favourite raincloud &amp; corgi.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:1.5rem;">
+    <div class="container">
+
+      <div class="facts-box">
+        <h3>Skins — quick overview</h3>
+        <div class="facts-grid">
+          <div class="fact-item"><span class="fact-label">Total skins</span><span class="fact-value">Dozens (updated)</span></div>
+          <div class="fact-item"><span class="fact-label">Cost</span><span class="fact-value">Free (most)</span></div>
+          <div class="fact-item"><span class="fact-label">Unlock method</span><span class="fact-value">Levels &amp; distance</span></div>
+          <div class="fact-item"><span class="fact-label">Affect gameplay</span><span class="fact-value">No (cosmetic only)</span></div>
+          <div class="fact-item"><span class="fact-label">Challenge skins</span><span class="fact-value">Yes — special unlocks</span></div>
+          <div class="fact-item"><span class="fact-label">Premium skins</span><span class="fact-value">Some in-app</span></div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap:2rem;align-items:start;">
+        <div>
+          <h2>How do you unlock skins in Stickman Hook?</h2>
+          <p>In Stickman Hook, skins unlock automatically as you complete levels and hit distance milestones — no purchase required for most. Keep clearing levels to earn new characters like ninjas, animals and food-themed stickmen; some special and challenge skins appear after specific stages.</p>
+          <p>There are two main unlock paths: <strong>level milestones</strong> (complete X levels) and <strong>distance milestones</strong> (accumulate X total metres swung across all your sessions). The game tracks both automatically and awards skins when you cross each threshold — you'll see a notification pop up mid-game or at the level end screen.</p>
+
+          <h2>Skin categories</h2>
+          <div class="faq-list">
+            {skinCategories.map(cat => (
+              <div class="card" style="margin-bottom:0;">
+                <h3 style="font-size:1rem;margin-bottom:0.25rem;">{cat.name}</h3>
+                <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.4rem;">{cat.description}</p>
+                <p style="font-size:0.85rem;margin-bottom:0.25rem;"><strong>Examples:</strong> {cat.examples}</p>
+                <p style="font-size:0.85rem;margin:0;"><strong>How to unlock:</strong> {cat.how}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2>How to get the raincloud skin</h2>
+          <p>The raincloud skin in Stickman Hook is a distance-milestone reward. The game tracks your total accumulated swing distance across all sessions — keep playing across multiple games and sessions and when you hit the required milestone, the raincloud unlocks automatically. You don't need to do it in a single run.</p>
+          <p>The exact threshold varies slightly between versions. If you haven't unlocked it yet, the best approach is simply to keep playing Classic mode; the distance accumulates whether you complete levels or restart.</p>
+
+          <h2>How to get the corgi skin</h2>
+          <p>The corgi is one of the most popular animal skins and unlocks by reaching a specific distance milestone or completing a set number of levels — depending on your version. It appears in the character select screen automatically once you've hit the threshold. Keep clearing levels and you'll see it appear.</p>
+
+          <h2>What are challenge skins?</h2>
+          <p>Challenge skins are special characters that unlock after completing specific in-game challenges — for example, finishing a particularly hard stage, completing a set of levels without missing a hook, or participating in limited-time events. Look for the <strong>challenge skin indicator</strong> in the character select screen, which shows what condition you need to meet for each locked challenge skin.</p>
+
+          <h2>Do skins affect gameplay?</h2>
+          <p>No — all skins in Stickman Hook are purely cosmetic. They change the visual appearance of your stickman but have zero effect on physics, speed, hook range, or difficulty. The game is fair regardless of which character you use, so unlock whatever looks coolest to you.</p>
+
+          <h2>Are any skins only available by paying?</h2>
+          <p>The vast majority of Stickman Hook skins are free and earned through gameplay. In the mobile app, some exclusive cosmetic bundles or premium skin packs may be available as in-app purchases, but these are optional extras — you can access the full game and most characters without spending anything.</p>
+        </div>
+      </div>
+
+      <!-- Extended content -->
+      <div class="grid-2" style="gap:2rem;align-items:start;margin-top:2.5rem;">
+        <div>
+          <h2>How to unlock skins efficiently</h2>
+          <p>The fastest way to unlock skins in Stickman Hook is to combine two activities: progressing through levels in Classic mode (which triggers level-based unlocks) and accumulating total swing distance across all sessions (which triggers distance-milestone unlocks). Both counters increment simultaneously whenever you're playing.</p>
+          <p>For players specifically targeting distance-milestone skins like the raincloud, the most efficient method is replaying very early levels (levels 1–5) repeatedly. These levels are short and completable in under 30 seconds, but each attempt still accumulates distance. Even incomplete runs count — every metre your stickman swings adds to the total. This means that attempting a hard level 20 times in a row is actually a fairly efficient distance-farming session even if you never complete the level.</p>
+          <p>For level-milestone skins, there's no shortcut — you need to progress through the level sequence. The good news is that every skin that unlocks via level milestone does so automatically at the level-end screen; you'll see a notification and the skin becomes immediately selectable in the character screen.</p>
+          <p>A common oversight: many players don't check the character select screen regularly. Skins that have been earned sometimes go unnoticed for dozens of sessions because players forget to open the menu. Check it every 10 levels or so to see what's newly available.</p>
+
+          <h2>The complete skin categories explained</h2>
+          <p><strong>Standard stickman variants:</strong> The most common unlocks, awarded every 5–10 levels throughout Classic mode. These include coloured stickmen, stickmen with accessories (hats, glasses), and small visual variants. They share identical physics and proportions with the default character — purely cosmetic. If you're playing through the game normally, you'll accumulate dozens of these without specifically aiming for them.</p>
+          <p><strong>Ninja skin:</strong> One of the most sought-after early unlocks. The ninja appears around levels 15–20 in most versions and is immediately recognisable for its clean, distinct silhouette. It's consistently the most-used skin among players who have unlocked it — simple, visible, and satisfying. In some versions it requires completing a specific challenge rather than a level milestone; check your character select screen for any challenge indicator.</p>
+          <p><strong>Animal skins — corgi, cat, bear, and others:</strong> These typically require a combination of distance milestones AND level completion. The distance counter increments across all playtime including failed attempts. Animal skins are consistently the most popular category; the corgi in particular has an almost cult following in the Stickman Hook community.</p>
+          <p><strong>Food-themed skins — banana, burger, and others:</strong> Generally locked behind later level milestones. Completing the first half of the game (roughly levels 1–50) typically unlocks most food skins. They're popular for their absurdity — a stickman rendered as a banana or burger is visually memorable in a way that many other skins aren't.</p>
+          <p><strong>Weather and nature skins — raincloud and similar:</strong> Pure distance milestones requiring accumulated swing distance that many casual players never reach. These skins signal significant time investment and are considered status symbols within the community.</p>
+          <p><strong>Challenge skins:</strong> Special characters that unlock after completing specific in-game challenges — finishing a difficult level on the first attempt, completing a level sequence without missing a hook, or hitting a combined milestone (distance + levels). These appear in the character select screen with a challenge indicator showing the completion condition. They require focused effort rather than passive accumulation.</p>
+        </div>
+
+        <div>
+          <h2>The most popular Stickman Hook skins</h2>
+          <p>Based on community forums, Reddit discussions, and social media posts, these skins consistently appear most frequently in shared gameplay content:</p>
+          <p><strong>1. Corgi:</strong> Unambiguously the most popular skin in the game. Its small round body and immediately recognisable silhouette make it stand out against the geometric level backgrounds better than almost any other skin. Players actively farm early levels to unlock it faster. Searching "Stickman Hook corgi" on YouTube or TikTok returns hundreds of gameplay videos using it.</p>
+          <p><strong>2. Raincloud:</strong> Popular because of how long it takes to earn. Displaying it signals substantial play time. Its appearance — a literal raincloud swinging on a grappling hook — is also genuinely charming and unlike anything else in the roster.</p>
+          <p><strong>3. Ninja:</strong> The most popular early-unlock skin. Many players adopt it as their permanent main character once it's unlocked and never change, treating it as the "real" default look for the game.</p>
+          <p><strong>4. Banana:</strong> A consistent favourite for its absurdity. Watching a banana swing on a grappling hook never gets old, and it creates some of the most shareable gameplay screenshots.</p>
+          <p><strong>5. Bear:</strong> Popular among younger players for being immediately cute and recognisable. The bear's proportions also create a pleasing visual effect against the physics swing arc.</p>
+
+          <h2>Skins on mobile vs browser — key differences</h2>
+          <p>The browser version and mobile app have different skin rosters. The browser version's skin catalogue is smaller, matching its smaller level count — it contains the core skins that are unlocked through the first hundred or so levels of play. The mobile app's skin system is significantly more extensive, with additional categories tied to its expanded world system.</p>
+          <p>Mobile-exclusive skins include seasonal event skins (Halloween, Christmas, summer events) that become available for limited periods and cannot be unlocked outside those windows. The browser version does not have timed events or seasonal skins.</p>
+          <p>Skin progress does not transfer between browser and mobile. If you've unlocked the corgi on mobile, it will not be available when you play the browser version, and vice versa. The two versions maintain completely separate save states.</p>
+          <p>Some players keep both versions active — using the browser game for quick sessions at a desk and the mobile app for longer unlock-focused sessions. If your goal is to complete the full skin catalogue, the mobile app is necessary; the browser version's catalogue is a subset of the total available.</p>
+
+          <h2>Premium skins and in-app purchases</h2>
+          <p>The vast majority of Stickman Hook skins are completely free and earned through gameplay. In the mobile app, Madbox has introduced some optional cosmetic bundles and premium skin packs as in-app purchases. These are purely optional extras — every level in the game can be completed, and most characters can be unlocked, without spending anything.</p>
+          <p>The most commonly seen paid option is the "No Ads" upgrade (approximately £2.49 / $2.99 depending on region), which removes between-level video advertisements from the mobile app. This doesn't unlock any specific skins — it's a pure quality-of-life purchase for players who play frequently and find the ad interruptions disruptive.</p>
+          <p>Some limited premium skin bundles appear periodically in the mobile app's store. These are typically themed around collaborations or seasonal events. Whether these represent good value depends on how attached you are to specific character appearances; competitive and gameplay-focused players have no reason to purchase them since skins have zero effect on game mechanics.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <h2>Related</h2>
+        <div class="link-grid">
+          <a href="/" class="link-card"><strong>&#127918; Play Now</strong><span>Start unlocking skins</span></a>
+          <a href="/levels/" class="link-card"><strong>&#127381; Levels Guide</strong><span>Complete more levels to unlock skins</span></a>
+          <a href="/how-to-play/" class="link-card"><strong>&#127919; Tips &amp; Tricks</strong><span>Play better, unlock faster</span></a>
+          <a href="/faq/" class="link-card"><strong>&#10067; FAQ</strong><span>More common questions</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <FAQBlock items={faqItems} heading="Skins & Characters — FAQ" />
+</BaseLayout>

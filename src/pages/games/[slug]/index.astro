@@ -1,0 +1,448 @@
+---
+import { GAMES } from '@/data/games';
+import { getGameContent } from '@/data/gamesContent';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GenericGameEmbed from '@/components/GenericGameEmbed.astro';
+import { SITE } from '@/consts';
+
+export function getStaticPaths() {
+  return GAMES.map((g) => ({ params: { slug: g.slug }, props: { game: g } }));
+}
+
+const { game } = Astro.props;
+const content = getGameContent(game.slug);
+const allFaqs = [...game.faqs, ...(content?.extraFaqs ?? [])];
+
+const breadcrumb = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home',       item: SITE.url + '/' },
+    { '@type': 'ListItem', position: 2, name: 'More Games', item: SITE.url + '/games/' },
+    { '@type': 'ListItem', position: 3, name: game.title,   item: `${SITE.url}/games/${game.slug}/` },
+  ],
+});
+
+const videoGame = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'VideoGame',
+  name: game.title,
+  description: game.description,
+  genre: game.category,
+  gamePlatform: ['Web browser'],
+  author: { '@type': 'Organization', name: game.developer },
+  publisher: { '@type': 'Organization', name: game.developer },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' },
+  url: `${SITE.url}/games/${game.slug}/`,
+});
+
+const faqSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+});
+---
+
+<BaseLayout
+  title={`${game.title} – Play Free Online | Stickman Hook`}
+  description={game.description.slice(0, 155)}
+  schema={[breadcrumb, videoGame, faqSchema]}
+>
+  <link rel="preconnect" href={`https://${game.embedHost}`} slot="head" />
+  <link rel="dns-prefetch" href={`https://${game.embedHost}`} slot="head" />
+
+  <!-- Hero + breadcrumb -->
+  <div class="section" style="padding-top:0.75rem;padding-bottom:0;">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="/games/">More Games</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">{game.title}</span>
+      </nav>
+
+      <div class="game-hero">
+        <div class="game-hero-badge">{game.emoji} {game.category}</div>
+        <h1>{game.title}</h1>
+        <p class="game-hero-lead">{game.description}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game embed (has its own max-width: 900px centred) -->
+  <GenericGameEmbed
+    embedUrl={game.embedUrl}
+    title={game.title}
+    tagline={game.tagline}
+    emoji={game.emoji}
+    color={game.color}
+    thumbnail={game.thumbnail}
+  />
+
+  <!-- Article content -->
+  <div class="section" style="padding-top:1.5rem;">
+    <div class="container">
+
+      <!-- Quick facts -->
+      <div class="facts-grid">
+        <div class="fact-item"><span class="fact-label">DEVELOPER</span><span class="fact-value">{game.developer}</span></div>
+        <div class="fact-item"><span class="fact-label">RELEASED</span><span class="fact-value">{game.year}</span></div>
+        <div class="fact-item"><span class="fact-label">CATEGORY</span><span class="fact-value">{game.category}</span></div>
+        <div class="fact-item"><span class="fact-label">PLAYERS</span><span class="fact-value">{game.players}</span></div>
+        <div class="fact-item"><span class="fact-label">AGE RATING</span><span class="fact-value">{game.ageRating}</span></div>
+        <div class="fact-item"><span class="fact-label">PRICE</span><span class="fact-value">Free</span></div>
+      </div>
+
+  <!-- ── Full article ── -->
+  <div class="article-body">
+
+    <!-- What is -->
+    {content && (
+      <section class="article-section">
+        <h2>What is {game.title}?</h2>
+        {content.whatIs.split('\n\n').map((para) => <p>{para}</p>)}
+      </section>
+    )}
+
+    <!-- How to play (expanded) -->
+    <section class="article-section">
+      <h2>How to play {game.title}</h2>
+      {content
+        ? content.howToPlayDetail.split('\n\n').map((para) => <p>{para}</p>)
+        : <p>{game.howToPlay}</p>
+      }
+
+      <!-- Controls -->
+      <h3>Controls</h3>
+      <table class="controls-table">
+        <thead><tr><th>ACTION</th><th>KEY / BUTTON</th></tr></thead>
+        <tbody>
+          {game.controls.map((c) => (
+            <tr><td>{c.action}</td><td><kbd>{c.key}</kbd></td></tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Tips -->
+    {content && content.tips.length > 0 && (
+      <section class="article-section">
+        <h2>Tips and strategies for {game.title}</h2>
+        <div class="tips-grid">
+          {content.tips.map((tip, i) => (
+            <div class="tip-card">
+              <div class="tip-number">{i + 1}</div>
+              <div>
+                <h3 class="tip-title">{tip.title}</h3>
+                <p class="tip-body">{tip.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Key features -->
+    <section class="article-section">
+      <h2>Key features</h2>
+      <ul class="feature-list">
+        {game.features.map((f) => <li>{f}</li>)}
+      </ul>
+    </section>
+
+    <!-- Two-column: popularity + unblocked -->
+    {content && (
+      <div class="two-col">
+        <section class="article-section">
+          <h2>Why is {game.title} so popular?</h2>
+          {content.whyPopular.split('\n\n').map((para) => <p>{para}</p>)}
+        </section>
+        <section class="article-section">
+          <h2>Can you play {game.title} unblocked at school?</h2>
+          {content.unblockedInfo.split('\n\n').map((para) => <p>{para}</p>)}
+        </section>
+      </div>
+    )}
+
+    <!-- Comparison -->
+    {content && (
+      <section class="article-section">
+        <h2>{game.title} compared to similar games</h2>
+        {content.comparison.split('\n\n').map((para) => <p>{para}</p>)}
+      </section>
+    )}
+
+    <!-- FAQ -->
+    <section class="article-section">
+      <h2>{game.title} — frequently asked questions</h2>
+      {allFaqs.map((faq) => (
+        <details class="faq-item">
+          <summary>{faq.q}</summary>
+          <p>{faq.a}</p>
+        </details>
+      ))}
+    </section>
+
+    <!-- Verdict -->
+    {content && (
+      <section class="article-section verdict-box">
+        <h2>Is {game.title} worth playing? — verdict</h2>
+        {content.verdict.split('\n\n').map((para) => <p>{para}</p>)}
+      </section>
+    )}
+
+  </div><!-- /article-body -->
+
+  <!-- Back links -->
+  <div class="back-link-wrap">
+    <a href="/games/" class="btn btn-secondary">← Back to More Games</a>
+    <a href="/" class="btn btn-primary">▶ Play Stickman Hook</a>
+  </div>
+
+    </div><!-- /container -->
+  </div><!-- /section -->
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: 0.75rem 0 0;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--accent-light); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .game-hero { padding: 1.5rem 0 0.5rem; }
+  .game-hero-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    background: rgba(124,58,237,0.12);
+    border: 1px solid rgba(124,58,237,0.3);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+  }
+  .game-hero h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 900;
+    margin: 0 0 0.75rem;
+    line-height: 1.1;
+  }
+  .game-hero-lead {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 680px;
+    line-height: 1.65;
+    margin: 0 0 1.5rem;
+  }
+
+  /* Quick facts */
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin: 1.75rem 0;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  .fact-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .fact-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; }
+  .fact-value { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+
+  /* Article body */
+  .article-body { max-width: 780px; margin: 0 auto 2rem; }
+
+  .article-section { margin-bottom: 2.5rem; }
+
+  h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin: 0 0 0.9rem;
+    color: var(--text);
+    line-height: 1.25;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.6rem;
+    color: var(--accent-light);
+  }
+  p {
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin: 0 0 1rem;
+    font-size: 0.96rem;
+  }
+
+  /* Controls table */
+  .controls-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  .controls-table th {
+    text-align: left;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .controls-table td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: var(--text-muted);
+  }
+  .controls-table td:first-child { color: var(--text); font-weight: 500; }
+  kbd {
+    display: inline-block;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 0.1rem 0.45rem;
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--accent-light);
+  }
+
+  /* Tips */
+  .tips-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .tip-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .tip-number {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(124,58,237,0.2);
+    border: 1px solid rgba(124,58,237,0.35);
+    color: var(--accent-light);
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tip-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 0.3rem;
+  }
+  .tip-body {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Feature list */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .feature-list li::before {
+    content: '✓';
+    color: var(--accent-light);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  /* Two-column layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* FAQ accordion */
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 0.1rem 0;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    padding: 0.8rem 0;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    user-select: none;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    color: var(--accent-light);
+    font-size: 1.2rem;
+    font-weight: 400;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p { padding: 0 0 0.9rem; font-size: 0.9rem; margin: 0; }
+
+  /* Verdict box */
+  .verdict-box {
+    background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(168,85,247,0.04));
+    border: 1px solid rgba(124,58,237,0.25);
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+  }
+  .verdict-box h2 { color: var(--accent-light); }
+
+  /* Back links */
+  .back-link-wrap {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 2.5rem 0 1rem;
+  }
+</style>

@@ -1,0 +1,177 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GameEmbed from '@/components/GameEmbed.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import FAQBlock from '@/components/FAQBlock.astro';
+import { SITE } from '@/consts';
+
+const title = 'Stickman Hook Unblocked – Play Free at School';
+const description = 'Play Stickman Hook unblocked, full screen and free. Works at school with no restrictions — swing through every level instantly on any Chromebook or school network.';
+const datePublished = '2024-01-15';
+const dateModified = '2026-06-23';
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": `${SITE.url}/og/unblocked.png`,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": { "@type": "Organization", "name": "Stickman Hook Fan Portal", "url": SITE.url },
+  "publisher": { "@type": "Organization", "name": "Stickman Hook Fan Portal", "url": SITE.url },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": `${SITE.url}/unblocked/` },
+  "about": { "@type": "VideoGame", "name": "Stickman Hook" }
+});
+
+const faqItems = [
+  {
+    q: 'Is Stickman Hook unblocked at school?',
+    a: 'Yes — you can play Stickman Hook unblocked here, free and in full screen, with no download or login. Because it runs as an HTML5 browser game it loads on school and work networks, including Chromebooks, so you can swing through every level instantly.',
+  },
+  {
+    q: 'Does Stickman Hook work on a Chromebook?',
+    a: 'Yes. Stickman Hook runs as a standard HTML5 browser game, which means it works perfectly on Chromebooks — just open this page in Chrome and click Play. No extensions, plugins, or downloads are needed.',
+  },
+  {
+    q: 'Why is Stickman Hook blocked at school?',
+    a: 'Most schools block gaming sites as a category in their web filter, not specifically Stickman Hook. Because this site focuses on a single game with educational-adjacent content (physics, timing, coordination) it passes many standard filters — but network policies vary.',
+  },
+  {
+    q: 'Is the unblocked version the same as the original game?',
+    a: 'Yes. The game here is the full HTML5 browser version of Stickman Hook — the same 100+ levels, same physics, same skins system. Nothing is cut or watered down.',
+  },
+  {
+    q: 'Does Stickman Hook Unblocked 76 / 66 / 67 work?',
+    a: 'Sites like Unblocked Games 76 and 66 host mirrors of Stickman Hook for school networks. This site is a dedicated portal that loads the full game directly — no need to visit third-party mirrors.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage="/og/unblocked.png" datePublished={datePublished} dateModified={dateModified} schema={articleSchema}>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'Stickman Hook Unblocked' }]} />
+      <div class="hero-badge">Unblocked &amp; Free</div>
+      <h1>Stickman Hook Unblocked</h1>
+      <p>Full screen, free, no download. Swing through every level — works on school networks and Chromebooks.</p>
+      <div class="hero-meta">
+        <span>&#10003; No login needed</span>
+        <span>&#10003; Works on Chromebook</span>
+        <span>&#10003; Full screen</span>
+        <span>&#10003; School-safe</span>
+        <span>&#10003; No restrictions</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game embed -->
+  <GameEmbed title="Stickman Hook — Unblocked" subtitle="Click to play full screen, no restrictions" />
+
+  <!-- Content -->
+  <div class="section">
+    <div class="container">
+
+      <div class="facts-box">
+        <h3>Why this version works at school</h3>
+        <div class="facts-grid">
+          <div class="fact-item"><span class="fact-label">Format</span><span class="fact-value">HTML5 (no Flash)</span></div>
+          <div class="fact-item"><span class="fact-label">Download</span><span class="fact-value">Not required</span></div>
+          <div class="fact-item"><span class="fact-label">Login</span><span class="fact-value">Not required</span></div>
+          <div class="fact-item"><span class="fact-label">Device</span><span class="fact-value">Chromebook, PC, Mac</span></div>
+          <div class="fact-item"><span class="fact-label">Full screen</span><span class="fact-value">Yes — one click</span></div>
+          <div class="fact-item"><span class="fact-label">Age rating</span><span class="fact-value">4+ (kid-friendly)</span></div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap:2rem;align-items:start;">
+        <div>
+          <h2>Is Stickman Hook unblocked at school?</h2>
+          <p>Yes — you can play Stickman Hook unblocked here, free and in full screen, with no download or login. Because it runs as an HTML5 browser game it loads on school and work networks, including Chromebooks, so you can swing through every level instantly.</p>
+          <p>The game uses the same HTML5 technology that powers educational tools, which means many school firewalls don't flag it. You get the complete Stickman Hook experience — all 100+ levels, all skins, and both Classic and Grapple Hook modes — without any restrictions.</p>
+
+          <h2>What is Stickman Hook?</h2>
+          <p>Stickman Hook is a free physics-based swinging arcade game by Madbox. Your stickman fires a grappling hook at glowing anchor points and swings from one to the next, building momentum to reach the finish line. One button controls everything — hold to hook, release to fly. It's one of the most-played browser games on the internet, with over 100 million downloads across web and mobile.</p>
+
+          <h2>How do I make Stickman Hook full screen?</h2>
+          <p>Click the <strong>Fullscreen</strong> button below the game window, or press <strong>F11</strong> in your browser to go full screen. To exit, press F11 or Escape. On a Chromebook, use the full-screen key (usually at the top row) or the button in the game bar below the embed.</p>
+        </div>
+
+        <div>
+          <h2>How to play Stickman Hook</h2>
+          <p>There's just one input. Hold the mouse button or spacebar to hook the nearest anchor, then release to launch. Here's the quick version:</p>
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><p>Click/hold (or tap on mobile) to fire your grappling hook at an anchor point.</p></div>
+            <div class="step"><div class="step-num">2</div><p>Swing on the rope — timing matters. Build momentum in the arc.</p></div>
+            <div class="step"><div class="step-num">3</div><p>Release at the peak of your swing to launch toward the next anchor.</p></div>
+          </div>
+
+          <div class="tip-box">
+            <p><strong>School tip:</strong> Use headphones if sound is on — the game has upbeat music. You can mute it in the game settings (gear icon) without affecting gameplay.</p>
+          </div>
+
+          <h2>Other versions — Unblocked 76, 66, 67, 77, 99</h2>
+          <p>"Stickman Hook Unblocked 76" and similar names refer to specific unblocked game site numbers (Unblocked Games 76, 66, 67, etc.) that host mirrors of popular games for school networks. This site provides the same full game directly — faster loading, dedicated page, and no third-party clutter. Bookmark this page for easy access during lunch breaks.</p>
+
+          <h2>Can I play on a school computer or Chromebook?</h2>
+          <p>Chromebooks run Chrome OS and play HTML5 games natively in the browser — no plugins required. This site is fully compatible. Just open the page in Chrome (or any browser on a school computer), click the game, and start swinging. If your school's filter blocks this URL, ask your IT admin or try the search terms "stickman hook unblocked github" for alternative hosts.</p>
+        </div>
+      </div>
+
+      <!-- Extended content -->
+      <div class="grid-2" style="gap:2rem;align-items:start;margin-top:2.5rem;">
+        <div>
+          <h2>How school network filters work — and why HTML5 games often pass them</h2>
+          <p>Most school network content filters use one of two methods: DNS filtering (blocking known gaming site domains by name) or category filtering (blocking entire categories such as "Games" or "Entertainment"). Because this site focuses specifically on Stickman Hook as a fan portal rather than hosting hundreds of unrelated games, it often doesn't appear on pre-built gaming blocklists maintained by filter providers.</p>
+          <p>The HTML5 format is significant. Flash-based games — which dominated school gaming in the 2000s and early 2010s — are entirely blocked today because Flash itself is disabled across all modern browsers. HTML5 games load as ordinary web pages, using the same underlying technology as educational sites, YouTube embeds, and school learning platforms. Many web filters treat them like regular web content rather than dedicated games, especially when hosted on a single-game portal rather than a multi-game arcade.</p>
+          <p>Some schools use Google Workspace for Education with managed Chromebook policies. In those environments, Chrome extensions and administrator policies may apply regardless of what the filter catches. Whether Stickman Hook loads on a managed Chromebook depends on what your specific school IT administrator has configured — network policies vary widely between institutions.</p>
+
+          <h2>Complete Chromebook guide for Stickman Hook</h2>
+          <p>Chromebooks are the device most commonly used by students on school networks. Here is a specific guide for getting the best experience:</p>
+          <p><strong>Browser:</strong> Use Google Chrome, which is preinstalled on every Chromebook. Chrome on ChromeOS supports HTML5 games fully without any additional configuration or plugins.</p>
+          <p><strong>Full screen:</strong> Press the dedicated full-screen key in the top row of the Chromebook keyboard (the key that looks like a rectangle with arrows), or click the Fullscreen button below the game window. To exit fullscreen, press the same key or Escape.</p>
+          <p><strong>If the game doesn't load:</strong> Verify that JavaScript is enabled. Go to chrome://settings/content/javascript and check that the site isn't blocked. On a managed Chromebook with IT policies applied, you may need to contact your school's IT administrator to whitelist the domain.</p>
+          <p><strong>If audio doesn't play:</strong> ChromeOS may mute sites by default. Click the audio icon in Chrome's address bar to allow sound, or adjust the system volume from the taskbar. You can also mute the game entirely from the in-game settings gear icon without affecting the experience — every important visual cue is on screen.</p>
+          <p><strong>Performance:</strong> Stickman Hook runs smoothly on all Chromebook models, including older ARM-processor devices. The game is lightweight by design — it requires no GPU acceleration and uses minimal CPU, making it one of the best-performing browser games on entry-level school hardware.</p>
+
+          <h2>Playing unblocked games responsibly at school</h2>
+          <p>Before playing any game at school, check your school's acceptable use policy. Many schools permit recreational use of computers during lunch breaks, free periods, or after school — but restrict gaming during lesson time. Using games during permitted windows keeps you compliant and avoids getting the site blocked for everyone on the network.</p>
+          <p>Some practical tips for school play: use headphones so the game audio doesn't disrupt others (or mute it entirely via the gear icon); don't switch tabs repeatedly during lessons since teacher monitoring software flags suspicious activity; and on managed Chromebooks, check whether a guest profile with less restrictive settings is available.</p>
+          <p>If the site becomes blocked on your school network mid-session, there's no need to try workarounds. Simply bookmark it for home use and play there. Attempting to circumvent school network security through VPNs or proxy sites typically violates acceptable use policies and can result in disciplinary action that outweighs the benefit of gaming access.</p>
+        </div>
+
+        <div>
+          <h2>The history of unblocked games culture</h2>
+          <p>The "unblocked games" phenomenon emerged in the late 2000s as schools deployed content filters to restrict students from gaming sites like Miniclip, AddictingGames, and Newgrounds. Students found workarounds quickly: game portals hosted on Google Sites (which schools rarely blocked), games embedded on educational domains, and eventually GitHub Pages (operating under github.io, a widely trusted domain).</p>
+          <p>Sites named "Unblocked Games 66", "Unblocked Games 76", "Unblocked Games 77", and "Unblocked Games 99" became fixtures on school networks — hosting hundreds of Flash then HTML5 games under domain names that filters initially didn't catch. When Flash was discontinued in December 2020 and made unplayable across all browsers, HTML5 games filled the gap. Stickman Hook, having launched as an HTML5 game in 2018, was ideally positioned for this transition.</p>
+          <p>The shift to HTML5 actually made unblocked gaming more widespread, because HTML5 games are genuinely harder for filters to distinguish from legitimate web content. A Stickman Hook game page looks, to a content filter, much like an article about physics — it's a text-heavy page with an embedded media element, not a domain name that matches a gaming blocklist.</p>
+
+          <h2>Why Stickman Hook works particularly well at school</h2>
+          <p>Beyond the technical reasons, Stickman Hook has several qualities that make it suited to the school environment specifically.</p>
+          <p><strong>Short, pauseable sessions:</strong> Each level takes 15–90 seconds to complete, making it easy to play a few levels and stop without losing progress. Unlike multiplayer games that require uninterrupted time, Stickman Hook pauses naturally at every level end screen. You can stop at any moment and resume exactly where you left off.</p>
+          <p><strong>Fully playable without sound:</strong> Every important element of Stickman Hook is visual — anchor points glow, bounce pads are clearly marked, and the finish line is visible. The audio (music and sound effects) is entirely optional. Muting is a single tap in the gear settings menu, and the game experience is identical with or without sound.</p>
+          <p><strong>No multiplayer dependency:</strong> As a single-player game, leaving a session midway has no impact on other players and no social pressure to continue. There are no teammates waiting, no ranked matches to complete, no social obligations.</p>
+          <p><strong>Kid-friendly content:</strong> A 4+ age rating means no violent imagery, blood, mature themes, or inappropriate content. The game features cartoon stickman characters in a physics puzzle format. If a teacher glances at the screen, there is nothing objectionable — and the physics-based gameplay can even be framed as a study of pendulum mechanics.</p>
+
+          <h2>Stickman Hook unblocked — frequently asked questions</h2>
+          <p><strong>What is "Stickman Hook Unblocked 76"?</strong> The number refers to the site Unblocked Games 76, one of many third-party game portals that host mirrors of popular games for school networks. This dedicated page provides the same complete game directly — faster loading, no third-party clutter, and a dedicated focus on Stickman Hook specifically.</p>
+          <p><strong>Does the unblocked version have all levels?</strong> Yes. The game here is the full HTML5 browser version of Stickman Hook — the same 100+ levels, the same physics engine, the same skins system. Nothing is cut, reduced, or different from the standard browser version of the game.</p>
+          <p><strong>Will the game remember my progress at school?</strong> Progress is stored in your browser's local storage. This means progress is tied to the specific browser and device you use. If you play on a school computer today, that progress won't transfer to a home computer automatically. For persistent cross-device progress, the mobile app (free on iOS and Android) uses cloud saves.</p>
+          <p><strong>Can I play Stickman Hook on a school iPad?</strong> Yes. Stickman Hook's browser version works on Safari on iOS. Open this page in Safari on the iPad and tap the screen to play. The native iOS app from the App Store also works on iPads.</p>
+        </div>
+      </div>
+
+      <!-- More links -->
+      <h2 style="margin-top:2rem;">More Stickman Hook</h2>
+      <div class="link-grid">
+        <a href="/" class="link-card"><strong>&#127918; Play Stickman Hook</strong><span>Original game — home page</span></a>
+        <a href="/how-to-play/" class="link-card"><strong>&#127919; How to Play</strong><span>Tips, controls &amp; tricks</span></a>
+        <a href="/levels/" class="link-card"><strong>&#127381; Levels Guide</strong><span>How many levels &amp; walkthroughs</span></a>
+        <a href="/faq/" class="link-card"><strong>&#10067; Full FAQ</strong><span>All common questions answered</span></a>
+      </div>
+    </div>
+  </div>
+
+  <FAQBlock items={faqItems} heading="Stickman Hook Unblocked — FAQ" />
+</BaseLayout>

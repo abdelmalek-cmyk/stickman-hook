@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+---
+
+<BaseLayout
+  title="About Stickman Hook – Fan Portal"
+  description="Learn about stickman-hook.co.uk — an unofficial fan portal dedicated to the browser game Stickman Hook by Madbox."
+  ogImage="/og/home.png"
+>
+  <div class="hero" style="padding:1.5rem 0;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'About' }]} />
+      <h1>About stickman-hook.co.uk</h1>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:1.5rem;">
+    <div class="container" style="max-width:760px;">
+      <div class="card" style="margin-bottom:1.5rem;">
+        <h2 style="color:var(--accent-light);">This is a fan portal</h2>
+        <p>stickman-hook.co.uk is an unofficial fan-built portal dedicated to <strong>Stickman Hook</strong>, the physics-based swinging game developed and published by <strong>Madbox</strong>. We are not affiliated with, endorsed by, or connected to Madbox in any way.</p>
+        <p>All game content, trademarks, and intellectual property relating to Stickman Hook belong to Madbox. This site simply provides a convenient place to play the browser version of the game alongside guides, FAQs, and tips for players.</p>
+      </div>
+
+      <h2>What we provide</h2>
+      <ul>
+        <li>A free, ad-supported browser portal to play Stickman Hook</li>
+        <li>A <a href="/how-to-play/">How to Play guide</a> covering controls, tips, and tricks</li>
+        <li>A <a href="/levels/">Levels guide</a> answering how many levels the game has and how to beat hard stages</li>
+        <li>A <a href="/skins/">Skins &amp; Characters guide</a> explaining how to unlock every costume</li>
+        <li>A <a href="/faq/">full FAQ</a> covering common questions about the game</li>
+        <li>Links to the official <a href="/download/">App Store and Google Play listings</a></li>
+      </ul>
+
+      <h2>Game credits</h2>
+      <p><strong>Stickman Hook</strong> was created by <strong>Madbox</strong>, a France-based mobile game studio. It launched on iOS on 3 October 2018 and has since accumulated over 100 million downloads on Google Play, becoming one of the most popular casual games on web and mobile platforms worldwide.</p>
+
+      <h2>Contact us</h2>
+      <p>Have a question, found an issue, or want to get in touch? Visit the <a href="/contact/">Contact page</a>.</p>
+    </div>
+  </div>
+</BaseLayout>

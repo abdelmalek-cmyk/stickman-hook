@@ -1,0 +1,229 @@
+---
+import { GAMES } from '@/data/games';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+
+const title = 'More Games – Play Free Online | Stickman Hook';
+const description = 'Play 15 free browser games online — multiplayer, platformers, racing, and more. No download, no login. Smash Karts, Run 3, Iron Snout, Venge.io, and more.';
+---
+
+<BaseLayout title={title} description={description} ogImage="/og/games.png">
+  <div class="hero" style="padding:1.5rem 0 0.5rem;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'More Games' }]} />
+      <h1>More Free Games to Play</h1>
+      <p class="hero-lead">15 hand-picked free browser games — click any card to play instantly, no download required.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0.5rem;">
+    <div class="container">
+
+      <!-- Game grid -->
+      <div class="games-grid">
+        {GAMES.map((g) => (
+          <a href={`/games/${g.slug}/`} class="gcard" style={`--gc: ${g.color};`}>
+            <div class="gcard-art">
+              {g.thumbnail
+                ? <img class="gcard-img" src={g.thumbnail} alt={g.title} loading="lazy" />
+                : <span class="gcard-emoji" aria-hidden="true">{g.emoji}</span>
+              }
+            </div>
+            <div class="gcard-body">
+              <span class="gcard-cat">{g.category}</span>
+              <h2 class="gcard-title">{g.title}</h2>
+              <p class="gcard-desc">{g.tagline}</p>
+              <span class="gcard-play">Play now →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Extended article content -->
+      <div class="grid-2" style="gap:2rem;align-items:start;margin-bottom:2.5rem;">
+        <div>
+          <h2>Why we chose these 15 games</h2>
+          <p>Not all browser games are created equal. Thousands of HTML5 games exist online, but the majority are poorly made — clones of popular titles with minimal design care, interrupted every 30 seconds by unskippable ads, or simply broken in most browsers. We tested extensively before including anything here.</p>
+          <p>Every game in this collection passes three tests: it loads correctly in a modern browser without requiring any download, plugin, or account; it has genuine gameplay depth that justifies more than a few minutes of attention; and it's appropriate for a wide audience, with nothing above a 12+ content rating.</p>
+          <p>These are also games with staying power. Run 3 has been played by hundreds of millions since 2014. Smash Karts regularly hosts thousands of concurrent online players. Territorial.io supports matches with hundreds of simultaneous participants per map. LOL Beans grew a dedicated community in its first year and still draws regular players. These aren't flash-in-the-pan titles — they're games people return to week after week.</p>
+          <p>The 15 games span a range of genres: multiplayer party games (House of Hazards, LOL Beans), competitive shooters (Venge.io, Rooftop Snipers), precision platformers (Jump Only, Low's Adventure 3), RPG progression games (Duck Life 4), survival and strategy (Taming.io, Territorial.io), and casual classics (Run 3, Iron Snout). There's something for different moods and different amounts of available time.</p>
+
+          <h2>Multiplayer and competitive games</h2>
+          <p><strong>Venge.io</strong> is a surprisingly polished 3D first-person shooter that runs entirely in the browser. Matches are fast (5–10 minutes), graphics are cleaner than most browser FPS titles, and the active player base means you get into a match within seconds. It's the top recommendation for players who enjoy games like CS:GO or Valorant but don't want to install anything.</p>
+          <p><strong>Smash Karts</strong> offers online kart racing with weapons and up to 10 players per match. The XP-based progression system (unlocking karts and cosmetics over time) provides longer-term goals beyond individual match outcomes. Matches are short enough for lunch breaks but replayable enough to keep you coming back across many sessions.</p>
+          <p><strong>LOL Beans</strong> is the closest browser equivalent to Fall Guys. Up to 30 players race through obstacle courses with knockout elimination rounds. Extremely approachable for new players — you can start scoring eliminations in your first match — while the chaos factor keeps it entertaining even when losing spectacularly.</p>
+          <p><strong>Territorial.io</strong> is a real-time strategy territory control game with a completely different pace from the action games above. Slower, more thoughtful, and requiring genuine strategic planning to win consistently. Matches with hundreds of players create emergent geopolitical dynamics that are genuinely fascinating to watch unfold.</p>
+          <p><strong>Rooftop Snipers</strong> and <strong>Volley Random</strong> are best for local multiplayer — two players on the same keyboard, same device. Short rounds, simple rules, and hilarious physics make them ideal for brief competitive sessions between classes or during breaks.</p>
+
+          <h2>Single-player games with depth</h2>
+          <p><strong>Run 3</strong> is the classic among browser endless runners. The tunnel-rotation mechanic — pressing left or right in mid-air rotates the entire level — distinguishes it from every other runner. Still exceptionally well-designed a decade after its 2014 release, with unlockable characters that play differently and both Endless and Story modes.</p>
+          <p><strong>Duck Life 4</strong> delivers a genuine RPG progression experience in a browser game. Train your duck in four disciplines (running, flying, swimming, climbing), defeat gym leaders, and reach the championship. Hours of content in a format that looks simple but has real strategic depth in how you allocate training time and equipment upgrades.</p>
+          <p><strong>Iron Snout</strong> is pure arcade action — a karate pig versus infinite wolves. The weapon-catching mechanic (pressing the right direction to intercept and redirect projectiles back at enemies) creates a satisfying skill expression layer that elevates it above a simple button-masher. High score chasing provides long-term replayability.</p>
+          <p><strong>Jump Only</strong> imposes a single-mechanic design constraint: you can only jump. 49 levels of increasing difficulty where pure timing is the only skill. Sounds almost too simple; plays surprisingly deep, with later levels demanding precise understanding of jump height and fall trajectory.</p>
+          <p><strong>Low's Adventure 3</strong> is a complete pixel-art platformer with 32 handcrafted levels, boss encounters after each world, and collectibles throughout. It's the fullest standalone game experience in the collection — not a game-within-a-game, but a proper adventure with a clear arc and satisfying completion feeling.</p>
+        </div>
+
+        <div>
+          <h2>What makes a great browser game?</h2>
+          <p>Browser games succeed when they do one of two things exceptionally well: either they provide a quick, satisfying experience that fits spare minutes (Rooftop Snipers, Iron Snout, Volley Random — these are 2–5 minute games you can play between tasks), or they create depth of content and progression that keeps players engaged for longer sessions (Smash Karts, Territorial.io, Duck Life 4, Taming.io).</p>
+          <p>The worst browser games try to replicate the scope of commercial releases with browser-game resources — they end up neither satisfying quick-play desires nor delivering the depth of a downloaded game. The best browser games know exactly what they are and design every element around that identity.</p>
+          <p>Every game in this collection understands its own purpose. Smash Karts knows it's a casual party kart game and doesn't pretend to be Mario Kart. Jump Only knows it's a pure timing challenge and doesn't add complexity. This clarity of purpose is what makes them more replayable than many free-to-play mobile games that bury their core loop under currencies, energy meters, and social features.</p>
+
+          <h2>Tips for multiplayer .io games</h2>
+          <p><strong>Territorial.io:</strong> Focus on expanding into uncontested neutral territory before engaging stronger neighbours. Territory generates army passively — the larger your early footprint, the faster your military grows. Alliances are useful but temporary; plan for when allies become rivals.</p>
+          <p><strong>Venge.io:</strong> Strafe constantly. Standing still is the fastest way to die in any FPS. Learn one or two maps well before trying others — map knowledge (where high ground is, where common routes lead) is more valuable than aim at low levels.</p>
+          <p><strong>Smash Karts:</strong> Stay moving at all times. Drive in erratic patterns and pick up every weapon box you see. Rockets and bombs are the most valuable weapons; missiles that track are devastating in close quarters. XP accumulates even in losses, so every match progresses your unlock journey.</p>
+          <p><strong>LOL Beans:</strong> Don't sprint for the front in the first few seconds — let the crowd clear the first obstacles and fall off. Positioning near the front-middle of the pack is safer than being first. In tag rounds, watch the tagged player's movement and avoid their direct path rather than sprinting randomly.</p>
+          <p><strong>Taming.io:</strong> Build windmills before anything else. Passive resource generation frees you to focus on exploration and combat. Taming early animals (even weak ones) provides backup in fights. Keep your animals fed — they despawn without food.</p>
+
+          <h2>Which games work best at school?</h2>
+          <p>For the typical school context — Chromebook or basic laptop, short available play windows, appropriate content requirement — these are the top picks:</p>
+          <p><strong>Run 3:</strong> Very lightweight, loads instantly, single-player with no social dependency. Levels are short enough to complete in a free minute. No account needed, no download, and progress saves in the browser.</p>
+          <p><strong>Volley Random:</strong> 2-minute rounds, works on any hardware including the oldest Chromebooks, kid-friendly content (4+), and the option for single-player vs AI when no second player is available.</p>
+          <p><strong>Duck Life 4:</strong> Single-player RPG that saves between sessions. Each training mini-game takes 1–3 minutes, making it easy to pick up and put down between classes without losing meaningful progress.</p>
+          <p><strong>Jump Only:</strong> Extremely lightweight, short level attempts (under a minute each), and a completely offline-compatible design. Nothing about it draws attention in a classroom setting.</p>
+
+          <h2>Frequently asked questions about these games</h2>
+          <p><strong>Are all 15 games free?</strong> Yes, completely. None require payment, account registration, or download to play in the browser. Some have optional in-app purchases in their mobile versions, but the browser versions here are free without exception.</p>
+          <p><strong>Do these games work on mobile?</strong> Most work on mobile browsers, though the experience varies. Games with keyboard-dependent controls (Iron Snout, Low's Adventure 3) are less suited to touch input. Games designed with touch in mind (LOL Beans, Smash Karts, Territorial.io) have mobile-optimised controls and work well on tablets and phones.</p>
+          <p><strong>Which game is best for playing with a friend locally?</strong> House of Hazards and Volley Random are the top picks for same-device multiplayer — up to 4 players on one keyboard for House of Hazards, 2-player same-keyboard for Volley Random. Rooftop Snipers is excellent for competitive 1v1 on the same device.</p>
+          <p><strong>Are there more games beyond these 15?</strong> These 15 represent our curated recommendations. For a broader catalogue across all genres, sites like Poki, CrazyGames, and CoolMathGames offer hundreds of tested HTML5 titles. We chose 15 deliberately — a short curated list is more actionable than an overwhelming archive, and each game here is one we'd genuinely recommend rather than simply include for completeness.</p>
+          <p><strong>What is the difference between these games and Stickman Hook?</strong> Stickman Hook is a precision single-player physics game focused on one mechanic mastered over 100+ levels. The games here are broader in scope and genre — multiplayer competition, RPG progression, strategy, endless runners. They're recommended as companions to Stickman Hook for players who want variety, not replacements for it.</p>
+        </div>
+      </div>
+
+      <!-- Stickman Hook promo -->
+      <div class="sh-promo">
+        <div>
+          <div class="game-tag" style="margin-bottom:0.5rem;">⭐ Play our main game</div>
+          <h2 style="margin:0 0 0.5rem;">Stickman Hook</h2>
+          <p style="color:var(--text-muted);margin:0 0 1rem;max-width:480px;">The original grappling-hook swinging game. 100+ levels, free in your browser — no download needed.</p>
+          <a href="/" class="btn btn-primary">▶ Play Stickman Hook</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero-lead {
+    max-width: 560px;
+    color: var(--text-muted);
+    margin: 0.5rem 0 1rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  /* ── Game grid ── */
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2.5rem;
+  }
+
+  .gcard {
+    display: flex;
+    flex-direction: column;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: #0d0d1a;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+  }
+  .gcard:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--gc) 60%, transparent);
+    box-shadow: 0 8px 32px color-mix(in srgb, var(--gc) 22%, transparent);
+  }
+
+  /* Art strip */
+  .gcard-art {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,
+      color-mix(in srgb, var(--gc) 55%, #0d0d1a) 0%,
+      #0a090e 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+  .gcard-art::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 30%,
+      color-mix(in srgb, var(--gc) 30%, transparent) 0%,
+      transparent 70%
+    );
+  }
+  .gcard-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+  .gcard-emoji {
+    font-size: 2.8rem;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 2px 12px color-mix(in srgb, var(--gc) 70%, transparent));
+  }
+
+  /* Body */
+  .gcard-body {
+    padding: 0.9rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+  }
+  .gcard-cat {
+    font-size: 0.63rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: color-mix(in srgb, var(--gc) 80%, #fff);
+  }
+  .gcard-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+    line-height: 1.25;
+  }
+  .gcard-desc {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin: 0.15rem 0 0;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .gcard-play {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: color-mix(in srgb, var(--gc) 80%, #fff);
+    margin-top: 0.6rem;
+    transition: gap 0.15s;
+  }
+  .gcard:hover .gcard-play { letter-spacing: 0.03em; }
+
+  /* Stickman Hook promo */
+  .sh-promo {
+    background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(168,85,247,0.05));
+    border: 1px solid rgba(124,58,237,0.35);
+    border-radius: 14px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

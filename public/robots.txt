@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Contact is noindex — block crawling to prevent indexing via robots.txt
+Disallow: /contact/
+
+# Astro internals
+Disallow: /_astro/
+
+Sitemap: https://stickman-hook.co.uk/sitemap-index.xml

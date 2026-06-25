@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found – Stickman Hook"
+  description="This page doesn't exist. Head back to play Stickman Hook free online."
+  noindex={true}
+>
+  <div style="min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:3rem 1.25rem;">
+    <div>
+      <div style="font-size:5rem;line-height:1;margin-bottom:1rem;opacity:0.6;">🪝</div>
+      <h1 style="font-size:clamp(2rem,6vw,4rem);margin-bottom:0.5rem;opacity:0.4;">404</h1>
+      <h2 style="margin-bottom:1rem;">Hook missed — page not found</h2>
+      <p style="color:var(--text-muted);max-width:380px;margin:0 auto 2rem;">
+        Looks like your grappling hook swung too far. This page doesn't exist or was moved.
+      </p>
+      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+        <a href="/" class="btn btn-primary">&#9654; Play Stickman Hook</a>
+        <a href="/unblocked/" class="btn btn-secondary">Play Unblocked</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

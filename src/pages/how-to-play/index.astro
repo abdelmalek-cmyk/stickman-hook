@@ -1,0 +1,237 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import FAQBlock from '@/components/FAQBlock.astro';
+import { SITE } from '@/consts';
+
+const title = 'How to Play Stickman Hook – Controls, Tips & Tricks';
+const description = 'Learn how to play Stickman Hook: controls for desktop and mobile, timing tips, bounce pad tricks, and pro strategies to beat every level fast.';
+const datePublished = '2024-01-15';
+const dateModified = '2026-06-23';
+
+const howToSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Play Stickman Hook",
+  "description": description,
+  "image": `${SITE.url}/og/how-to-play.png`,
+  "totalTime": "PT2M",
+  "tool": [{ "@type": "HowToTool", "name": "Web browser" }],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Open the game",
+      "text": "Go to stickman-hook.co.uk and click the Play button. The game loads instantly in HTML5 — no download or account required.",
+      "url": `${SITE.url}/how-to-play/#step-1`
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Hold to hook an anchor",
+      "text": "Press and hold the left mouse button or spacebar (desktop) or tap and hold the screen (mobile). Your stickman fires a grappling hook at the nearest glowing anchor point.",
+      "url": `${SITE.url}/how-to-play/#step-2`
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Swing on the rope",
+      "text": "Your stickman swings on the rope in a pendulum arc. Lean into the motion — longer ropes create wider arcs and build more momentum.",
+      "url": `${SITE.url}/how-to-play/#step-3`
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Release to launch",
+      "text": "Release the button or key at the right moment in the arc to launch forward. Release just past horizontal on the forward arc for maximum momentum.",
+      "url": `${SITE.url}/how-to-play/#step-4`
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Chain swings to the finish",
+      "text": "Hook the next anchor the instant you're in range. The faster you chain swings, the more height and speed you maintain. Reach the finish line to complete the level.",
+      "url": `${SITE.url}/how-to-play/#step-5`
+    }
+  ]
+});
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": `${SITE.url}/og/how-to-play.png`,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": { "@type": "Organization", "name": "Stickman Hook Fan Portal", "url": SITE.url },
+  "publisher": { "@type": "Organization", "name": "Stickman Hook Fan Portal", "url": SITE.url },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": `${SITE.url}/how-to-play/` },
+  "about": { "@type": "VideoGame", "name": "Stickman Hook" }
+});
+
+const faqItems = [
+  {
+    q: 'What are the controls for Stickman Hook?',
+    a: 'Stickman Hook uses one input. On desktop, hold the left mouse button or spacebar to attach the hook and release to launch. On mobile, tap and hold the screen, then lift your finger to let go. There are no other buttons — it\'s all about timing.',
+  },
+  {
+    q: 'How do you play Stickman Hook?',
+    a: 'To play Stickman Hook, hold the mouse button or spacebar (or tap and hold on mobile) to fire your grappling hook at the nearest anchor, then release to let go and launch forward. Time your releases to keep momentum, use bounce pads, and swing to the finish line.',
+  },
+  {
+    q: 'How do you beat level 25 in Stickman Hook?',
+    a: 'To beat level 25 in Stickman Hook, release each swing slightly later than feels natural to carry more momentum, and line up the next hook before you let go. Use bounce pads to recover height, and don\'t over-swing — short, controlled hooks keep you on line.',
+  },
+  {
+    q: 'What is the best strategy for Stickman Hook?',
+    a: 'The key strategy is timing your release as late as possible in the forward arc to carry maximum momentum. Hook quickly after landing — the faster you hook the next anchor, the less height you lose. On tricky gaps, shorten your swing arc by hooking the anchor earlier in the approach.',
+  },
+  {
+    q: 'How do you use bounce pads in Stickman Hook?',
+    a: 'Bounce pads are orange trampolines that launch you upward when you land on them. Aim to hit them near the centre for maximum height. You can swing into a bounce pad intentionally when you\'ve lost too much height to reach the next anchor directly.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage="/og/how-to-play.png" datePublished={datePublished} dateModified={dateModified} schema={[howToSchema, articleSchema]}>
+  <div class="hero" style="padding:1.5rem 0;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'How to Play Stickman Hook' }]} />
+      <h1>How to Play Stickman Hook</h1>
+      <p style="max-width:600px;margin:0 auto;">Controls, timing tips, and pro strategies to swing faster and beat every level.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:1.5rem;">
+    <div class="container">
+
+      <div class="facts-box">
+        <h3>Controls — quick reference</h3>
+        <div class="facts-grid">
+          <div class="fact-item"><span class="fact-label">Desktop — hook</span><span class="fact-value">Hold left mouse button or spacebar</span></div>
+          <div class="fact-item"><span class="fact-label">Desktop — release</span><span class="fact-value">Let go of mouse / spacebar</span></div>
+          <div class="fact-item"><span class="fact-label">Mobile — hook</span><span class="fact-value">Tap and hold the screen</span></div>
+          <div class="fact-item"><span class="fact-label">Mobile — release</span><span class="fact-value">Lift your finger</span></div>
+          <div class="fact-item"><span class="fact-label">Total inputs</span><span class="fact-value">One (hold / release)</span></div>
+          <div class="fact-item"><span class="fact-label">Fullscreen</span><span class="fact-value">Button below the game window</span></div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap:2rem;align-items:start;">
+        <div>
+          <h2>How do you play Stickman Hook?</h2>
+          <p>To play Stickman Hook, hold the mouse button or spacebar (or tap and hold on mobile) to fire your grappling hook at the nearest anchor, then release to let go and launch forward. Time your releases to keep momentum, use bounce pads, and swing to the finish line.</p>
+
+          <div class="steps">
+            <div class="step"><div class="step-num">1</div><p><strong>Hold to hook:</strong> Press and hold the mouse button or spacebar. Your stickman fires a grappling hook at the nearest glowing anchor point automatically.</p></div>
+            <div class="step"><div class="step-num">2</div><p><strong>Swing:</strong> You swing on the rope in an arc. Lean into the motion — longer hooks make wider arcs with more momentum.</p></div>
+            <div class="step"><div class="step-num">3</div><p><strong>Release to launch:</strong> Let go at the right point in the arc to fly toward the next anchor. Release too early and you fall short; too late and you crash into walls.</p></div>
+            <div class="step"><div class="step-num">4</div><p><strong>Hook the next anchor:</strong> As soon as you're in range of the next anchor, hook again immediately. The faster you chain swings, the more momentum you keep.</p></div>
+          </div>
+
+          <h2>Desktop vs mobile controls</h2>
+          <table>
+            <thead>
+              <tr><th>Platform</th><th>Hook</th><th>Release</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Desktop</td><td>Hold left mouse button or spacebar</td><td>Release button/key</td></tr>
+              <tr><td>Mobile</td><td>Tap and hold the screen</td><td>Lift your finger</td></tr>
+            </tbody>
+          </table>
+          <p>There are no other controls. No movement keys, no jump button — every action comes from that single hold-and-release mechanic. The game selects the nearest anchor automatically, so you focus entirely on timing.</p>
+
+          <h2>What is Grapple Hook mode?</h2>
+          <p>Grapple Hook mode is an alternate game mode that unlocks after completing 30 Classic levels. In this mode the rope physics change subtly, making the swing feel different and demanding a slightly adjusted release timing. It's a great way to keep the game fresh once you've mastered the basics.</p>
+        </div>
+
+        <div>
+          <h2>Tips and tricks to improve</h2>
+
+          <h3>1. Release later than feels right</h3>
+          <p>The most common beginner mistake is releasing too early — at the highest point of the upswing. The real sweet spot is just past horizontal, on the forward arc. Holding slightly longer carries maximum forward momentum and reduces height loss between anchors.</p>
+
+          <h3>2. Hook the next anchor immediately</h3>
+          <p>The moment you're in range of the next anchor, hook it — don't wait until you've lost speed. Chain swings quickly and you'll maintain height across long gaps that otherwise seem impossible.</p>
+
+          <h3>3. Use bounce pads to recover</h3>
+          <p>Orange bounce pads are your safety net. If you've dropped too low to reach the next anchor by swinging, aim for a bounce pad to get height back. Hit the centre for the most height. You can also use them deliberately to skip sections by bouncing high and hooking a distant anchor.</p>
+
+          <h3>4. Adjust hook length on tight spots</h3>
+          <p>If two anchors are close together and you're moving fast, hook the second anchor early — before you reach the peak of the arc from the first. This makes a shorter swing that lets you thread tight gaps without crashing.</p>
+
+          <h3>5. Speedrunning basics</h3>
+          <p>Speedrunners never fully stop swinging — they maintain a continuous chain of hooks. Practice specific tricky transitions in early levels until they're muscle memory. The world record approach is about eliminating hesitation, not finding shortcuts: the fastest path is usually the direct one with perfect timing on every release.</p>
+
+          <div class="tip-box">
+            <p><strong>Level 25 specifically:</strong> Release each swing slightly later than feels natural to carry more momentum, and line up the next hook before you let go. Use bounce pads to recover height, and keep hooks short and controlled.</p>
+          </div>
+
+          <h2>How do skins affect gameplay?</h2>
+          <p>Skins are purely cosmetic — ninjas, animals, food characters — they don't change physics, speed, or difficulty. Unlock them by completing levels and hitting distance milestones. See the <a href="/skins/">Skins &amp; Characters page</a> for a full guide.</p>
+        </div>
+      </div>
+
+      <!-- Extended content -->
+      <div class="grid-2" style="gap:2rem;align-items:start;margin-top:2.5rem;">
+        <div>
+          <h2>Understanding the physics engine</h2>
+          <p>Stickman Hook simulates a simplified but realistic pendulum physics model. When you attach your hook to an anchor, your stickman hangs from a rope of fixed length and swings in a circular arc around that anchor point. Understanding a few physics principles will make you a better player:</p>
+          <p><strong>Momentum:</strong> The speed you carry from one swing transfers directly to the next. If you release at the optimal forward arc point, you maintain most of your horizontal momentum. If you release too early — before the arc peak — gravity pulls you down faster and you lose height more rapidly.</p>
+          <p><strong>Arc length vs speed:</strong> Longer ropes swing more slowly but carry you further per arc. Shorter ropes swing quickly but cover less distance. The game sets rope length automatically based on the distance to the nearest anchor, so choosing which anchor to target affects your arc shape and timing window.</p>
+          <p><strong>Free-flight trajectory:</strong> Between hooks, you are in free flight. Gravity pulls you down at a constant rate. Learning to predict your trajectory during free flight — where you will be when you reach the next anchor — is what separates intermediate players from advanced ones. The moment you can predict your arc without conscious thought, your timing improves dramatically.</p>
+          <p><strong>Bounce pad interactions:</strong> Orange bounce pads launch you upward with a fixed velocity. The height you gain depends on where you hit the pad (centre gives maximum height). After a bounce, you briefly follow a pure ballistic trajectory before you can hook again. Time your first post-bounce hook for the apex of the bounce arc.</p>
+
+          <h2>Level types and specific strategies</h2>
+          <p>The browser version groups its levels into themed worlds, each with distinct visual design and a distinct challenge philosophy. Here's how to approach each type:</p>
+          <p><strong>Open swing levels (early worlds):</strong> Wide open spaces with many visible anchor points. Strategy: swing freely, prioritise momentum, and use the full width of each arc. These levels punish hesitation more than anything else — keep moving and chain every swing immediately.</p>
+          <p><strong>Corridor levels (mid-game):</strong> Narrow channels with walls on both sides. Strategy: use shorter, more controlled swings by targeting closer anchors. Entering a corridor with maximum momentum causes crashes into walls — reduce speed deliberately by hooking earlier in your approach swing.</p>
+          <p><strong>Platform levels:</strong> Solid platforms you can intentionally land on. Landing resets momentum to zero, which is usually bad — but useful when you need a stable reset before a difficult hook sequence. Some players use platform landings as deliberate staging points on particularly complex sections.</p>
+          <p><strong>Long gap levels:</strong> Wide horizontal gaps with no anchors in the middle section. These require carrying maximum momentum into the gap. Release at the very end of your last pre-gap swing, and hook the first available anchor on the far side as early as possible to prevent falling below the playfield.</p>
+
+          <h2>Common mistakes and how to fix them</h2>
+          <p><strong>Mistake: Releasing at the peak of the upswing.</strong> Many beginners release at the apex — the highest point — of the upward arc. This sends you backward or straight up, rapidly losing forward momentum. Fix: hold slightly past the apex, until the rope points roughly forward, then release on the downward arc going in the direction of travel.</p>
+          <p><strong>Mistake: Waiting too long between hooks.</strong> After launching, many players wait until nearly stationary before hooking again. Every fraction of a second without a hook costs height and speed. Fix: hook the next anchor the instant you're in range. Don't wait to see where you are — hook immediately and adjust from there.</p>
+          <p><strong>Mistake: Targeting the wrong anchor.</strong> When multiple anchors are visible, the game automatically targets the nearest one — but nearest isn't always most useful. If the nearest anchor sends you into a wall or backward, it's better to manoeuvre to target a further, more useful one. Fix: look ahead two anchors, not just one.</p>
+          <p><strong>Mistake: Over-swinging through tight gaps.</strong> Carrying maximum speed into a narrow gap causes wall crashes before you can adjust. Fix: use shorter arcs in the approach (hook earlier on the previous swing) to enter tight sections with more controlled, lower speed.</p>
+          <p><strong>Mistake: Panicking on bounce pads.</strong> Players often try to hook immediately after bouncing from a pad, which sends them sideways unpredictably. Fix: wait for the apex of the bounce arc before hooking. This gives a stable vertical position to swing from and avoids chaotic sideways launches.</p>
+        </div>
+        <div>
+          <h2>How to build skill systematically</h2>
+          <p>Improvement at Stickman Hook comes from deliberate repetition of specific tricky sections, not marathon play sessions. A focused practice approach:</p>
+          <p>First, identify the one or two transitions per level where you consistently fail. Usually it's a specific gap width, a corridor entry, or a post-bounce hook. Instead of running the full level repeatedly, deliberately fail to reach that section, then focus only on executing that transition correctly five times in succession.</p>
+          <p>Once you can execute the difficult section reliably, run the full level as a continuous flow. The goal is to make the entire level muscle memory — a sequence of automatic responses rather than conscious decisions. Speed improvements come naturally once timing is consistent; rushing before consistency is established just locks in mistakes.</p>
+          <p>If you're stuck on the same level across multiple sessions, take at least a 24-hour break before attempting again. The brain consolidates motor learning during sleep and recovery, and returning fresh often produces breakthroughs that grinding the same level repeatedly cannot.</p>
+
+          <h2>Advanced techniques for experienced players</h2>
+          <p><strong>Anchor selection:</strong> On levels with dense anchor clusters, choose anchors that create the longest useful rope length for the current section — longer ropes carry more distance per swing, making wide gaps easier. On tight sections, choose the nearest anchor to create a short, controllable pendulum.</p>
+          <p><strong>Momentum conservation:</strong> The key to high-speed runs is never losing momentum. This means hooking before you slow down, releasing exactly at the optimal forward arc point, and chaining every transition without any idle time. Watch top speedruns on YouTube and notice that the stickman never appears to slow — every action flows directly into the next.</p>
+          <p><strong>Using walls deliberately:</strong> On some levels, you can use wall bounces to change direction. Swinging into a wall at a low angle can redirect your trajectory without a full momentum reset, allowing you to navigate sections that seem geometrically impossible at first.</p>
+          <p><strong>Pre-aiming for the next anchor:</strong> As you release your current swing, immediately look for the next anchor and position your cursor (on desktop) or anticipate your tap position (on mobile) so you can hook it the instant you're in range. This eliminates the reaction-time delay between entering anchor range and hooking.</p>
+
+          <h2>Mobile vs desktop: key differences</h2>
+          <p>Playing on desktop with a mouse gives you more precise cursor position control and the ability to pre-aim. The downside is that the mouse button is less ergonomic for rapid repeated tapping than a finger on a touchscreen. Many desktop players prefer the spacebar for this reason — it's easier to hold and release rhythmically.</p>
+          <p>On mobile, the touchscreen allows you to tap anywhere, which can feel more natural and responsive, but the lack of a visible cursor means you cannot pre-aim the next anchor as easily. Mobile players rely more heavily on timing feel than on visual anchor targeting. If you find one platform noticeably easier, that's normal — many players have a clear preference and stick to it.</p>
+          <p>For the browser version on a touchscreen device (tablet, touch laptop), the mobile controls apply: tap and hold to hook, lift to release. The game detects touch automatically.</p>
+
+          <h2>Speedrunning Stickman Hook</h2>
+          <p>A community of speedrunners competes on level completion time and any-percent (complete all browser levels as fast as possible) categories. The approach: never let momentum die, eliminate all hesitation, and learn each level's optimal routing — the sequence of anchors that forms the fastest path rather than the most obvious one.</p>
+          <p>For players wanting to improve their times, the most impactful change is reducing the gap between swings. Watching your own gameplay back (screen recording) and identifying every moment where you coast without a hook will show you precisely where time is being lost. World-class runs involve zero idle time between any two anchors across the entire level.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <h2>More Stickman Hook guides</h2>
+        <div class="link-grid">
+          <a href="/" class="link-card"><strong>&#127918; Play Now</strong><span>Start swinging instantly</span></a>
+          <a href="/levels/" class="link-card"><strong>&#127381; Levels Guide</strong><span>How many levels &amp; walkthroughs</span></a>
+          <a href="/skins/" class="link-card"><strong>&#128084; Skins</strong><span>All characters &amp; how to unlock</span></a>
+          <a href="/unblocked/" class="link-card"><strong>&#127891; Unblocked</strong><span>Play free at school</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <FAQBlock items={faqItems} heading="How to Play — FAQ" />
+</BaseLayout>

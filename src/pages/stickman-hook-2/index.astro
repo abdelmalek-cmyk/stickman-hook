@@ -1,0 +1,121 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GameEmbed from '@/components/GameEmbed.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+import FAQBlock from '@/components/FAQBlock.astro';
+
+const title = 'Stickman Hook 2 – Play the Sequel Online Free';
+const description = 'Play Stickman Hook 2 online free. More levels, tougher swings, and the same addictive grappling-hook gameplay — no download required.';
+
+const faqItems = [
+  {
+    q: 'Is there a Stickman Hook 2?',
+    a: 'There isn\'t an official "Stickman Hook 2" sequel from Madbox; instead, the original keeps getting new levels and modes through updates. Many sites list "Stickman Hook 2" or "3" as fan or alternate versions with extra levels and the same grappling-hook gameplay.',
+  },
+  {
+    q: 'What is the difference between Stickman Hook 1 and Stickman Hook 2?',
+    a: 'The original Stickman Hook by Madbox is the canonical game. Fan-made "Stickman Hook 2" versions are community-built recreations with extended or custom levels. They use the same grappling-hook mechanic but aren\'t official sequels — the original game is still being actively updated by Madbox.',
+  },
+  {
+    q: 'Is Stickman Hook 2 unblocked?',
+    a: 'This page hosts the Stickman Hook 2 version in full, unblocked — no download or login required. It works on school networks and Chromebooks in the same way as the original. See our <a href="/unblocked/">unblocked page</a> for more options.',
+  },
+  {
+    q: 'Is there a Stickman Hook 3?',
+    a: 'Like "Stickman Hook 2", a "Stickman Hook 3" isn\'t an official Madbox release — it\'s a community label for further fan-extended versions with additional level packs. The official Stickman Hook is the original, which Madbox updates with new content regularly.',
+  },
+  {
+    q: 'What is Super Stickman Hook?',
+    a: 'Super Stickman Hook is a variant of the game found on some portals that offers a tweaked version of the classic grappling-hook gameplay. Like other "2" and "3" versions, it\'s not an official Madbox sequel — but it\'s built on the same mechanics and is fun to play.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage="/og/stickman-hook-2.png">
+  <div class="hero" style="padding:1.5rem 0;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'Stickman Hook 2' }]} />
+      <div class="hero-badge">Extended levels</div>
+      <h1>Stickman Hook 2</h1>
+      <p style="max-width:600px;margin:0 auto;">More levels, tougher swings, and the same addictive grappling-hook gameplay. Play free in your browser — no download needed.</p>
+    </div>
+  </div>
+
+  <!-- Uses same game embed — the "2" is a content framing, game embed is the same base game -->
+  <GameEmbed title="Stickman Hook 2" subtitle="Click to start — same great swinging, more challenge" />
+
+  <div class="section">
+    <div class="container">
+
+      <div class="facts-box">
+        <h3>At a glance</h3>
+        <div class="facts-grid">
+          <div class="fact-item"><span class="fact-label">Official sequel</span><span class="fact-value">No (fan extended)</span></div>
+          <div class="fact-item"><span class="fact-label">Developer</span><span class="fact-value">Madbox (original)</span></div>
+          <div class="fact-item"><span class="fact-label">Mechanic</span><span class="fact-value">Same grappling hook</span></div>
+          <div class="fact-item"><span class="fact-label">Price</span><span class="fact-value">Free</span></div>
+          <div class="fact-item"><span class="fact-label">Download</span><span class="fact-value">Not needed</span></div>
+          <div class="fact-item"><span class="fact-label">Unblocked</span><span class="fact-value">Yes</span></div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="gap:2rem;align-items:start;">
+        <div>
+          <h2>Is there a Stickman Hook 2?</h2>
+          <p>There isn't an official "Stickman Hook 2" sequel from Madbox; instead, the original keeps getting new levels and modes through updates. Many sites list "Stickman Hook 2" or "3" as fan or alternate versions with extra levels and the same grappling-hook gameplay.</p>
+          <p>The game above gives you the full Stickman Hook experience — all the levels available in the browser version. Because Madbox continuously updates the original with new content, the "sequel" in practice is simply the newest version of the game you already love.</p>
+
+          <h2>What's different in the sequel versions?</h2>
+          <p>Fan-made "Stickman Hook 2" versions are typically the original game engine with an extended level pack — more stages, sometimes set in new environments or with slightly tweaked obstacle layouts. The core mechanic is identical: one input, grappling hook physics, finish-line goal.</p>
+          <p>Some community builds add a <strong>two-player mode</strong> or split-screen challenge mode, which is the main mechanical addition that distinguishes them from the solo-only original.</p>
+
+          <h2>Where to find more Stickman Hook versions</h2>
+          <ul>
+            <li><strong>Poki</strong> — hosts the Madbox official version with frequent updates</li>
+            <li><strong>CoolMathGames</strong> — popular school-accessible version</li>
+            <li><strong>GitHub</strong> — open-source recreations and fan builds with extended levels</li>
+            <li><strong>Scratch</strong> — community remixes and extended level packs</li>
+            <li><strong>CrazyGames</strong> — additional variant versions</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>How to play (same as the original)</h2>
+          <p>The controls are identical to the original Stickman Hook. Hold the mouse button or spacebar on desktop (or tap and hold on mobile) to fire your grappling hook. Release to launch forward. Chain swings quickly to maintain momentum and reach the finish line.</p>
+
+          <table>
+            <thead>
+              <tr><th>Platform</th><th>Hook</th><th>Release</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Desktop</td><td>Hold left mouse / spacebar</td><td>Release</td></tr>
+              <tr><td>Mobile</td><td>Tap and hold</td><td>Lift finger</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Is there a Stickman Hook 3?</h2>
+          <p>Like "Stickman Hook 2", a "Stickman Hook 3" isn't an official Madbox release — it's a community label for further fan-extended versions with additional level packs. The Madbox original is the definitive version; the "3" designation just signals even more custom levels on top of the base game.</p>
+
+          <h2>What is Super Stickman Hook?</h2>
+          <p>Super Stickman Hook is a variant found on several portals that tweaks the original gameplay slightly — sometimes with added power-ups or new mechanics layered on top of the classic grappling system. It's not an official Madbox release, but it's built on the same foundation and offers a fresh challenge if you've mastered the original 100+ levels.</p>
+
+          <div class="tip-box">
+            <p><strong>Recommended:</strong> For the freshest, most up-to-date Stickman Hook content, the <a href="/">original game on this site</a> is always the best option. Madbox adds new levels and modes to the base game regularly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <h2>More Stickman Hook</h2>
+        <div class="link-grid">
+          <a href="/" class="link-card"><strong>&#127918; Original Game</strong><span>Play the Madbox original</span></a>
+          <a href="/unblocked/" class="link-card"><strong>&#127891; Unblocked</strong><span>Play at school — no restrictions</span></a>
+          <a href="/levels/" class="link-card"><strong>&#127381; Levels Guide</strong><span>How many levels &amp; walkthroughs</span></a>
+          <a href="/games/" class="link-card"><strong>&#127918; Similar Games</strong><span>More swing &amp; stickman games</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <FAQBlock items={faqItems} heading="Stickman Hook 2 — FAQ" />
+</BaseLayout>

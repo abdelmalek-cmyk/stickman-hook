@@ -1,0 +1,91 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumb from '@/components/Breadcrumb.astro';
+---
+
+<BaseLayout
+  title="Contact – Stickman Hook"
+  description="Get in touch with the stickman-hook.co.uk team — report issues, ask questions, or send feedback."
+  ogImage="/og/home.png"
+  noindex={true}
+>
+  <div class="hero" style="padding:1.5rem 0;">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'Contact' }]} />
+      <h1>Contact Us</h1>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:1.5rem;">
+    <div class="container" style="max-width:640px;">
+      <div class="card" style="margin-bottom:1.5rem;">
+        <h2 style="margin-top:0;">Get in touch</h2>
+        <p>Have a question, spotted an issue with the site, or want to report broken game content? Fill in the form below and we'll get back to you as soon as we can.</p>
+        <p style="color:var(--text-muted);font-size:0.875rem;">For questions about the Stickman Hook game itself (bugs, purchases, accounts), please contact <strong>Madbox</strong> directly through the official app store listing — we can't help with game-side issues as we're an independent fan portal.</p>
+      </div>
+
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        class="card"
+        style="display:flex;flex-direction:column;gap:1rem;"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <label for="name" style="font-size:0.875rem;font-weight:600;color:var(--text-muted);">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);padding:0.6rem 0.9rem;font-size:1rem;font-family:var(--font);outline:none;transition:border-color 0.2s;"
+            placeholder="Your name"
+          />
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <label for="email" style="font-size:0.875rem;font-weight:600;color:var(--text-muted);">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);padding:0.6rem 0.9rem;font-size:1rem;font-family:var(--font);outline:none;transition:border-color 0.2s;"
+            placeholder="your@email.com"
+          />
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <label for="subject" style="font-size:0.875rem;font-weight:600;color:var(--text-muted);">Subject</label>
+          <select
+            id="subject"
+            name="subject"
+            style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);padding:0.6rem 0.9rem;font-size:1rem;font-family:var(--font);outline:none;"
+          >
+            <option value="general">General question</option>
+            <option value="bug">Site issue / bug</option>
+            <option value="game">Game not loading</option>
+            <option value="content">Content feedback</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <label for="message" style="font-size:0.875rem;font-weight:600;color:var(--text-muted);">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="5"
+            style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);padding:0.6rem 0.9rem;font-size:1rem;font-family:var(--font);outline:none;resize:vertical;transition:border-color 0.2s;"
+            placeholder="Tell us what's on your mind..."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</BaseLayout>
