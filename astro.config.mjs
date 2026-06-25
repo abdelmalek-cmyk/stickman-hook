@@ -1,11 +1,14 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
+import cloudflare from "@astrojs/cloudflare";
+
 const SITE = 'https://stickman-hook.co.uk';
 
 export default defineConfig({
   site: SITE,
   trailingSlash: 'always',
+
   integrations: [
     sitemap({
       changefreq: 'weekly',
@@ -36,10 +39,13 @@ export default defineConfig({
       },
     }),
   ],
+
   vite: {
     build: {
       cssMinify: true,
       minify: 'esbuild',
     },
   },
+
+  adapter: cloudflare()
 });
